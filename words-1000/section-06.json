@@ -1,0 +1,502 @@
+[
+{
+"no": 501,
+"word": "blame A for B",
+"mean": "BのことでAを非難する、BをAのせいにする"
+},
+{
+"no": 502,
+"word": "punish A for B",
+"mean": "BのことでAを罰する"
+},
+{
+"no": 503,
+"word": "forgive A for B",
+"mean": "BのことでAを許す"
+},
+{
+"no": 504,
+"word": "deprive A of B",
+"mean": "AからBを奪う"
+},
+{
+"no": 505,
+"word": "rob A of B",
+"mean": "（暴力・脅迫などで）AからBを奪う"
+},
+{
+"no": 506,
+"word": "cure A of B",
+"mean": "AのBを治す、A（人）のB（悪癖など）を取り除く"
+},
+{
+"no": 507,
+"word": "accuse A of B",
+"mean": "BのことでAを非難［告訴］する"
+},
+{
+"no": 508,
+"word": "suspect A of B",
+"mean": "BについてAを疑う"
+},
+{
+"no": 509,
+"word": "assure A of B",
+"mean": "A（人）にB（物・事）を請け合う［保証する］"
+},
+{
+"no": 510,
+"word": "transform A into/to B",
+"mean": "AをBに変える［変質させる］"
+},
+{
+"no": 511,
+"word": "talk A into B",
+"mean": "A（人）を説得してBをさせる"
+},
+{
+"no": 512,
+"word": "present A with B",
+"mean": "AにBを贈る［与える］"
+},
+{
+"no": 513,
+"word": "diagnose A as B",
+"mean": "AをBと診断する"
+},
+{
+"no": 514,
+"word": "strike A as B",
+"mean": "A（人）にBの印象を与える"
+},
+{
+"no": 515,
+"word": "congratulate A on/for B",
+"mean": "BのことでAを祝う"
+},
+{
+"no": 516,
+"word": "name A after B",
+"mean": "AをBにちなんで名づける"
+},
+{
+"no": 517,
+"word": "make an effort/efforts",
+"mean": "努力する"
+},
+{
+"no": 518,
+"word": "make way",
+"mean": "道をあける"
+},
+{
+"no": 519,
+"word": "live/lead a ～ life",
+"mean": "［～］の生活をする"
+},
+{
+"no": 520,
+"word": "make/earn a/one's living",
+"mean": "生計を立てる"
+},
+{
+"no": 521,
+"word": "take one's place",
+"mean": "①いつもの席に着く、特定の地位を占める ②～に取って代わる"
+},
+{
+"no": 522,
+"word": "take turns",
+"mean": "交代でする"
+},
+{
+"no": 523,
+"word": "take a chance/chances",
+"mean": "思い切ってやってみる、賭ける"
+},
+{
+"no": 524,
+"word": "take shape",
+"mean": "（はっきりした）形をとる"
+},
+{
+"no": 525,
+"word": "take/have a seat",
+"mean": "着席する"
+},
+{
+"no": 526,
+"word": "take a risk/risks",
+"mean": "（あえて）危険を冒す、賭ける"
+},
+{
+"no": 527,
+"word": "shake hands",
+"mean": "握手する"
+},
+{
+"no": 528,
+"word": "change hands",
+"mean": "持ち主が変わる"
+},
+{
+"no": 529,
+"word": "have a say (in ～)",
+"mean": "（～に）発言権［発言力］を持つ"
+},
+{
+"no": 530,
+"word": "have/got one's (own) way",
+"mean": "思い通りにする"
+},
+{
+"no": 531,
+"word": "keep/hold one's temper",
+"mean": "冷静さを保つ"
+},
+{
+"no": 532,
+"word": "take advantage of ～",
+"mean": "～を利用する、～につけ込む"
+},
+{
+"no": 533,
+"word": "take control of ～",
+"mean": "～を制御［管理・支配］する"
+},
+{
+"no": 534,
+"word": "make use of ～",
+"mean": "～を利用する"
+},
+{
+"no": 535,
+"word": "make fun of ～",
+"mean": "～をからかう"
+},
+{
+"no": 536,
+"word": "make friends with ～",
+"mean": "～と親しくなる"
+},
+{
+"no": 537,
+"word": "make much of ～",
+"mean": "～を重要視する、（否定文で）～を理解する"
+},
+{
+"no": 538,
+"word": "have difficulty (in) doing",
+"mean": "～するのが困難である、苦労しながら～する"
+},
+{
+"no": 539,
+"word": "have access to ～",
+"mean": "～を利用できる、～に近づける"
+},
+{
+"no": 540,
+"word": "have an influence/effect on ～",
+"mean": "～に影響を与える"
+},
+{
+"no": 541,
+"word": "have a liking for ～",
+"mean": "～を好む"
+},
+{
+"no": 542,
+"word": "give rise to ～",
+"mean": "～を引き起こす［生む］"
+},
+{
+"no": 543,
+"word": "give birth to ～",
+"mean": "～を産む、～の原因になる"
+},
+{
+"no": 544,
+"word": "find one's way to ～",
+"mean": "～へたどり着く、～まで道を探しながら進む"
+},
+{
+"no": 545,
+"word": "keep an eye on ～",
+"mean": "～に気を付けている、～から目を離さない"
+},
+{
+"no": 546,
+"word": "fall victim to ～",
+"mean": "～の犠牲［餌食］になる"
+},
+{
+"no": 547,
+"word": "catch sight of ～",
+"mean": "～を見つける［見かける］"
+},
+{
+"no": 548,
+"word": "put emphasis/stress on/upon ～",
+"mean": "～を強調［重視］する"
+},
+{
+"no": 549,
+"word": "be related to ～",
+"mean": "～と関係がある、～と婚姻関係がある"
+},
+{
+"no": 550,
+"word": "be similar to ～",
+"mean": "～に似ている"
+},
+{
+"no": 551,
+"word": "be subject to ～",
+"mean": "～を受けやすい、～に服従している"
+},
+{
+"no": 552,
+"word": "be superior to ～",
+"mean": "～より優れている"
+},
+{
+"no": 553,
+"word": "be sensitive to ～",
+"mean": "～に敏感である"
+},
+{
+"no": 554,
+"word": "be accustomed to ～",
+"mean": "～に慣れている"
+},
+{
+"no": 555,
+"word": "be contrary to ～",
+"mean": "～に反している"
+},
+{
+"no": 556,
+"word": "be indifferent to/toward(s) ～",
+"mean": "～に無関心［無頓着］である"
+},
+{
+"no": 557,
+"word": "be preferable to ～",
+"mean": "～より好ましい［優れている］"
+},
+{
+"no": 558,
+"word": "be dedicated to ～",
+"mean": "（仕事・目的など）に打ち込んでいる"
+},
+{
+"no": 559,
+"word": "be peculiar to ～",
+"mean": "～に特有である"
+},
+{
+"no": 560,
+"word": "be prone to ～",
+"mean": "～になりやすい"
+},
+{
+"no": 561,
+"word": "be identical to/with ～",
+"mean": "～と同じ［同一］である"
+},
+{
+"no": 562,
+"word": "be involved in ～",
+"mean": "～に携わっている［関係している］、～に熱中している"
+},
+{
+"no": 563,
+"word": "be absorbed in ～",
+"mean": "～に熱中している"
+},
+{
+"no": 564,
+"word": "be lacking in ～",
+"mean": "～に欠けている"
+},
+{
+"no": 565,
+"word": "be versed in ～",
+"mean": "～に精通［熟達］している"
+},
+{
+"no": 566,
+"word": "be abundant in ～",
+"mean": "～が豊富である"
+},
+{
+"no": 567,
+"word": "be busy with ～",
+"mean": "～で忙しい"
+},
+{
+"no": 568,
+"word": "be popular with/among ～",
+"mean": "～に人気がある"
+},
+{
+"no": 569,
+"word": "be equipped with ～",
+"mean": "～を備えている"
+},
+{
+"no": 570,
+"word": "be content/contented with ～",
+"mean": "～に満足している"
+},
+{
+"no": 571,
+"word": "be confronted with/by ～",
+"mean": "（困難・問題など）に直面している"
+},
+{
+"no": 572,
+"word": "be acquainted with ～",
+"mean": "～に精通している、～と知り合いである"
+},
+{
+"no": 573,
+"word": "be characteristic of ～",
+"mean": "～に特有である、いかにも～らしい"
+},
+{
+"no": 574,
+"word": "be worthy of ～",
+"mean": "～に値する［ふさわしい］"
+},
+{
+"no": 575,
+"word": "be ignorant of ～",
+"mean": "～を知らない"
+},
+{
+"no": 576,
+"word": "be confident of/about ～",
+"mean": "～を確信している"
+},
+{
+"no": 577,
+"word": "be considerate of/to ～",
+"mean": "～に対して思いやりのある"
+},
+{
+"no": 578,
+"word": "be guilty of ～",
+"mean": "～について有罪である、～を犯している"
+},
+{
+"no": 579,
+"word": "be convinced of ～",
+"mean": "～を確信している"
+},
+{
+"no": 580,
+"word": "be tolerant of ～",
+"mean": "～に対して寛大である"
+},
+{
+"no": 581,
+"word": "be wary of ～",
+"mean": "～に用心深い"
+},
+{
+"no": 582,
+"word": "be suitable for/ to ～",
+"mean": "～に適している、（目的など）に合っている"
+},
+{
+"no": 583,
+"word": "be grateful (to A) for B",
+"mean": "Bのことで（Aに）感謝している"
+},
+{
+"no": 584,
+"word": "be particular about/over ～",
+"mean": "～についてやかましい［気難しい］"
+},
+{
+"no": 585,
+"word": "come down with ～",
+"mean": "（病気）にかかる"
+},
+{
+"no": 586,
+"word": "come into being/existence",
+"mean": "出現する、生まれ出る"
+},
+{
+"no": 587,
+"word": "come true",
+"mean": "（夢・予言などが）実現する"
+},
+{
+"no": 588,
+"word": "do ～ good",
+"mean": "（人）のためになる［役に立つ］"
+},
+{
+"no": 589,
+"word": "get in touch (with ～)",
+"mean": "（～と）連絡を取る"
+},
+{
+"no": 590,
+"word": "go blind",
+"mean": "失明する"
+},
+{
+"no": 591,
+"word": "have A in common (with B)",
+"mean": "（Bと）共通にAを持っている"
+},
+{
+"no": 592,
+"word": "keep/bear ～ in mind",
+"mean": "～を心に留めておく［忘れない］"
+},
+{
+"no": 593,
+"word": "look back on/upon/to ～",
+"mean": "～を回顧［回想］する"
+},
+{
+"no": 594,
+"word": "make it",
+"mean": "成功する、うまくやる、間に合う、出席する"
+},
+{
+"no": 595,
+"word": "put into practice/operation",
+"mean": "～を実行［実施］する"
+},
+{
+"no": 596,
+"word": "sign up for ～",
+"mean": "（受講など）の届け出をする、～に加わる"
+},
+{
+"no": 597,
+"word": "take ～ by surprise",
+"mean": "～を驚かす、～の不意を打つ"
+},
+{
+"no": 598,
+"word": "in terms of ～",
+"mean": "～の観点から、～に換算して"
+},
+{
+"no": 599,
+"word": "in contrast to/with ～",
+"mean": "～と著しく違って、～と対照をなして"
+},
+{
+"no": 600,
+"word": "in danger of ～",
+"mean": "～の危険があって"
+}
+]

@@ -1,0 +1,502 @@
+[
+{
+"no": 101,
+"word": "take care of ～",
+"mean": "～に気をつける、～の世話をする"
+},
+{
+"no": 102,
+"word": "look forward to ～",
+"mean": "～を楽しみに待つ"
+},
+{
+"no": 103,
+"word": "ask for ～",
+"mean": "～を求める"
+},
+{
+"no": 104,
+"word": "get rid of ～",
+"mean": "（厄介なもの）を取り除く"
+},
+{
+"no": 105,
+"word": "fall in love with ～",
+"mean": "（事・物）を大好きになる、（人）と恋に落ちる"
+},
+{
+"no": 106,
+"word": "used to do/be",
+"mean": "～したものだった、昔は～であった"
+},
+{
+"no": 107,
+"word": "had better do",
+"mean": "…したほうがいい、…すべきだ"
+},
+{
+"no": 108,
+"word": "help A with B",
+"mean": "AのBを手伝う、AをBで助ける"
+},
+{
+"no": 109,
+"word": "prefer A to B",
+"mean": "ＢよりＡを好む"
+},
+{
+"no": 110,
+"word": "turn A into B",
+"mean": "ＡをＢに（質的に）変える"
+},
+{
+"no": 111,
+"word": "prevent A from B",
+"mean": "AがBするのを妨げる、AをBから防ぐ"
+},
+{
+"no": 112,
+"word": "remind A of/about B",
+"mean": "AにBを思い出させる"
+},
+{
+"no": 113,
+"word": "regard A as B",
+"mean": "AをBとみなす"
+},
+{
+"no": 114,
+"word": "associate A with B",
+"mean": "ＡをＢと結びつけて考える"
+},
+{
+"no": 115,
+"word": "inform A of/about B",
+"mean": "AにBを知らせる"
+},
+{
+"no": 116,
+"word": "after all",
+"mean": "結局（は）、やっぱり"
+},
+{
+"no": 117,
+"word": "all the time",
+"mean": "いつも、常に"
+},
+{
+"no": 118,
+"word": "all the way",
+"mean": "ずっと、はるばる"
+},
+{
+"no": 119,
+"word": "～ and so on/forth",
+"mean": "～など"
+},
+{
+"no": 120,
+"word": "and yet",
+"mean": "それにも関わらず"
+},
+{
+"no": 121,
+"word": "as ～ as possible/one can",
+"mean": "できる限り～"
+},
+{
+"no": 122,
+"word": "as a result (of ～)",
+"mean": "（～の）結果として"
+},
+{
+"no": 123,
+"word": "as a whole",
+"mean": "全体として（の）"
+},
+{
+"no": 124,
+"word": "as usual",
+"mean": "いつものように"
+},
+{
+"no": 125,
+"word": "at best",
+"mean": "よくても、せいぜい"
+},
+{
+"no": 126,
+"word": "at least",
+"mean": "少なくとも"
+},
+{
+"no": 127,
+"word": "at (the) most",
+"mean": "せいぜい、多くても"
+},
+{
+"no": 128,
+"word": "at a time",
+"mean": "一度に"
+},
+{
+"no": 129,
+"word": "at once",
+"mean": "①すぐに ②同時に"
+},
+{
+"no": 130,
+"word": "at all",
+"mean": "①（否定文で）まったく ②（疑問文で）一体、そもそも ③（肯定文で）そもそも、ともかく"
+},
+{
+"no": 131,
+"word": "at any rate",
+"mean": "とにかく、いずれにしても"
+},
+{
+"no": 132,
+"word": "at random",
+"mean": "無作為に、手当たり次第に"
+},
+{
+"no": 133,
+"word": "more or less",
+"mean": "①多かれ少なかれ、程度の差はあれ②ほぼ、おおよそ"
+},
+{
+"no": 134,
+"word": "at times",
+"mean": "ときどき"
+},
+{
+"no": 135,
+"word": "between you and me",
+"mean": "ここだけの話だが、内緒だが"
+},
+{
+"no": 136,
+"word": "by hand",
+"mean": "手で"
+},
+{
+"no": 137,
+"word": "by mistake",
+"mean": "間違って"
+},
+{
+"no": 138,
+"word": "by no means",
+"mean": "全然～ない"
+},
+{
+"no": 139,
+"word": "by the way",
+"mean": "ところで"
+},
+{
+"no": 140,
+"word": "far from ～",
+"mean": "～からほど遠い、～どころではない"
+},
+{
+"no": 141,
+"word": "for a while",
+"mean": "しばらくの間"
+},
+{
+"no": 142,
+"word": "for example/instance",
+"mean": "例えば"
+},
+{
+"no": 143,
+"word": "for one thing",
+"mean": "一つには"
+},
+{
+"no": 144,
+"word": "in a hurry",
+"mean": "急いで、あせって"
+},
+{
+"no": 145,
+"word": "in addition (to ～)",
+"mean": "（～に）加えて、さらに"
+},
+{
+"no": 146,
+"word": "in any case/event",
+"mean": "とにかく、いずれにしても"
+},
+{
+"no": 147,
+"word": "in detail",
+"mean": "詳細に"
+},
+{
+"no": 148,
+"word": "in fact",
+"mean": "①実際に ②（前言と対照して）（ところが）実際は"
+},
+{
+"no": 149,
+"word": "in general",
+"mean": "①一般に ②（名詞の後に置いて）一般の"
+},
+{
+"no": 150,
+"word": "in other words",
+"mean": "言い換えれば、つまり"
+},
+{
+"no": 151,
+"word": "in public",
+"mean": "人前で、公然と"
+},
+{
+"no": 152,
+"word": "in reality",
+"mean": "（ところが）実際には、（想像などではなく）現実に"
+},
+{
+"no": 153,
+"word": "in the end",
+"mean": "結局は、ついには"
+},
+{
+"no": 154,
+"word": "in the future",
+"mean": "将来は、今後は"
+},
+{
+"no": 155,
+"word": "in the long run",
+"mean": "長い目で見れば、結局は"
+},
+{
+"no": 156,
+"word": "no doubt",
+"mean": "おそらく、たぶん"
+},
+{
+"no": 157,
+"word": "no longer ～",
+"mean": "もはや～ない"
+},
+{
+"no": 158,
+"word": "not always ～",
+"mean": "必ずしも～ではない"
+},
+{
+"no": 159,
+"word": "on earth",
+"mean": "①（疑問詞を強めて）一体全体 ②（最上級を強めて）世界中で"
+},
+{
+"no": 160,
+"word": "on the other hand",
+"mean": "他方では、これに反して"
+},
+{
+"no": 161,
+"word": "so far",
+"mean": "今までの所"
+},
+{
+"no": 162,
+"word": "sooner or later",
+"mean": "遅かれ早かれ"
+},
+{
+"no": 163,
+"word": "these days",
+"mean": "近頃は、この頃は"
+},
+{
+"no": 164,
+"word": "according to ～",
+"mean": "①～によれば ②～に従って、～に応じて"
+},
+{
+"no": 165,
+"word": "owing/due to ～",
+"mean": "～のために"
+},
+{
+"no": 166,
+"word": "thanks to ～",
+"mean": "～のおかげで"
+},
+{
+"no": 167,
+"word": "in spite of ～",
+"mean": "～にもかかわらず"
+},
+{
+"no": 168,
+"word": "all over (～)",
+"mean": "（～の）至る所に［で］、一面に"
+},
+{
+"no": 169,
+"word": "apart from ～",
+"mean": "①～のほかに ②～を除いては"
+},
+{
+"no": 170,
+"word": "aside from ～",
+"mean": "～を除いては、～のほかに"
+},
+{
+"no": 171,
+"word": "ahead of ～",
+"mean": "（時間的に）～より先に、（位置的に）～の前に、～より進歩して"
+},
+{
+"no": 172,
+"word": "in search of ～",
+"mean": "～を求めて［探して］"
+},
+{
+"no": 173,
+"word": "in preparation",
+"mean": "～の準備中で"
+},
+{
+"no": 174,
+"word": "each other",
+"mean": "お互い"
+},
+{
+"no": 175,
+"word": "so ～ that …",
+"mean": "（結果を表して）非常に～なので…する"
+},
+{
+"no": 176,
+"word": "A as well as B",
+"mean": "BだけでなくAも"
+},
+{
+"no": 177,
+"word": "not only A but (also) B",
+"mean": "AだけでなくBも"
+},
+{
+"no": 178,
+"word": "as if/though …",
+"mean": "まるで…するように"
+},
+{
+"no": 179,
+"word": "as soon as …",
+"mean": "…するやいなや"
+},
+{
+"no": 180,
+"word": "Something is wrong with ～.",
+"mean": "～はどこか調子がおかしい［故障している］"
+},
+{
+"no": 181,
+"word": "bring up ～",
+"mean": "①～を育てる②（問題・話題など）を持ち出す = raise"
+},
+{
+"no": 182,
+"word": "call off ～",
+"mean": "～を中止する［取り消す］ = cancel"
+},
+{
+"no": 183,
+"word": "carry on (～)",
+"mean": "（～を）続ける = happen, occur"
+},
+{
+"no": 184,
+"word": "come about",
+"mean": "起こる = continue"
+},
+{
+"no": 185,
+"word": "come by ～",
+"mean": "～を手に入れる = get, obtain"
+},
+{
+"no": 186,
+"word": "come up with ～",
+"mean": "（解決策など）を思いつく = devise, invent, conceive"
+},
+{
+"no": 187,
+"word": "do away with ～",
+"mean": "～を取り除く、～を廃止する = eliminate, abolish"
+},
+{
+"no": 188,
+"word": "find fault with ～",
+"mean": "～にけちをつける、～を非難する = criticize"
+},
+{
+"no": 189,
+"word": "get over",
+"mean": "～を克服する、（病気など）から回復する = overcome"
+},
+{
+"no": 190,
+"word": "hand in ～",
+"mean": "（手渡しで）～を提出する［届ける］ = submit"
+},
+{
+"no": 191,
+"word": "learn ～ by heart",
+"mean": "～を暗記する = memorize"
+},
+{
+"no": 192,
+"word": "look into ～",
+"mean": "～を調べる = investigate"
+},
+{
+"no": 193,
+"word": "look over ～",
+"mean": "～を（ざっと）調べる = examine"
+},
+{
+"no": 194,
+"word": "pass away",
+"mean": "死ぬ = die"
+},
+{
+"no": 195,
+"word": "put off ～",
+"mean": "～を延期する = postpone"
+},
+{
+"no": 196,
+"word": "put together ～",
+"mean": "（部品など）を組み立てる、（考えなど）をまとめる = assemble, build"
+},
+{
+"no": 197,
+"word": "put up ～",
+"mean": "①～を掲げる、～を上げる、～を建てる②～を泊める = raise, lift, erect, construct/accommodete"
+},
+{
+"no": 198,
+"word": "put up with ～",
+"mean": "～を我慢する = tolerate, endure, stand"
+},
+{
+"no": 199,
+"word": "set about ～",
+"mean": "～を始める = begin, start"
+},
+{
+"no": 200,
+"word": "set in",
+"mean": "始まる = begin, start"
+}
+]

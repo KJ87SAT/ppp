@@ -1,0 +1,502 @@
+[
+{
+"no": 201,
+"word": "take after ～",
+"mean": "～に似ている = resemble"
+},
+{
+"no": 202,
+"word": "of importance",
+"mean": "重要な = important"
+},
+{
+"no": 203,
+"word": "along with ～",
+"mean": "～と一緒に、～に加えて = besides"
+},
+{
+"no": 204,
+"word": "in connection with ～",
+"mean": "～に関連して = concerning, about"
+},
+{
+"no": 205,
+"word": "on board (～)",
+"mean": "（乗り物）に乗って、乗って（た） = aboard"
+},
+{
+"no": 206,
+"word": "prior to ～",
+"mean": "～より前で = before"
+},
+{
+"no": 207,
+"word": "(every) once in a while",
+"mean": "ときどき = sometimes, occasionally"
+},
+{
+"no": 208,
+"word": "above all (else)",
+"mean": "とりわけ、特に = especially, particularly"
+},
+{
+"no": 209,
+"word": "all of a sudden",
+"mean": "突然に、不意に = suddenly, abruptly"
+},
+{
+"no": 210,
+"word": "(all/just) the same",
+"mean": "それでもやはり = nevertheless"
+},
+{
+"no": 211,
+"word": "as a (general) rule",
+"mean": "普通は、概して = generally, usually"
+},
+{
+"no": 212,
+"word": "as well",
+"mean": "～もまた = too, also"
+},
+{
+"no": 213,
+"word": "before long",
+"mean": "間もなく = soon"
+},
+{
+"no": 214,
+"word": "by degrees",
+"mean": "徐々に = gradually"
+},
+{
+"no": 215,
+"word": "for good",
+"mean": "永久に = forever, permanently"
+},
+{
+"no": 216,
+"word": "for the most part",
+"mean": "大体は、大部分は = mostly, generally"
+},
+{
+"no": 217,
+"word": "from time to time",
+"mean": "ときどき = sometimes, occationally"
+},
+{
+"no": 218,
+"word": "in advance",
+"mean": "前もって = beforehand"
+},
+{
+"no": 219,
+"word": "in all",
+"mean": "全部で = altogether"
+},
+{
+"no": 220,
+"word": "in particular",
+"mean": "特に =especially, particularly"
+},
+{
+"no": 221,
+"word": "on occasion(s)",
+"mean": "ときどき = sometimes, occationally"
+},
+{
+"no": 222,
+"word": "on purpose",
+"mean": "わざと、故意に = intentionally, purposely"
+},
+{
+"no": 223,
+"word": "over and over (again)",
+"mean": "何度も繰り返し = repeatedly"
+},
+{
+"no": 224,
+"word": "right away",
+"mean": "今すぐ、直ちに = immediately"
+},
+{
+"no": 225,
+"word": "agree to ～",
+"mean": "（提案・計画・条件など）に同意する"
+},
+{
+"no": 226,
+"word": "agree with ～",
+"mean": "（人が）（人・考えなど）に同意する、（気候・食物などが）～に合う、～に一致［適合］する"
+},
+{
+"no": 227,
+"word": "apply for ～",
+"mean": "（仕事・許可など）を申し込む［志願する］"
+},
+{
+"no": 228,
+"word": "apply to ～",
+"mean": "①～に当てはまる ②（人・場所・組織）に申し込む"
+},
+{
+"no": 229,
+"word": "remember doing",
+"mean": "…したのを覚えている"
+},
+{
+"no": 230,
+"word": "remember to do",
+"mean": "忘れずに…する"
+},
+{
+"no": 231,
+"word": "catch up with/to ～",
+"mean": "（遅れた状態から）～に追いつく"
+},
+{
+"no": 232,
+"word": "keep pace with ～",
+"mean": "～に遅れずについていく"
+},
+{
+"no": 233,
+"word": "keep up with ～",
+"mean": "～に遅れずについていく"
+},
+{
+"no": 234,
+"word": "leave ～ alone",
+"mean": "～をそのままにしておく、～に干渉しない"
+},
+{
+"no": 235,
+"word": "let alone ～",
+"mean": "～は言うまでもなく"
+},
+{
+"no": 236,
+"word": "correspond to ～",
+"mean": "～に一致する、～に相当する"
+},
+{
+"no": 237,
+"word": "correspond with ～",
+"mean": "～とやりとりを交わす、～と文通する"
+},
+{
+"no": 238,
+"word": "hit on/upon ～",
+"mean": "～を思いつく、～に出くわす"
+},
+{
+"no": 239,
+"word": "occur to ～",
+"mean": "ふと（人）の心に浮かぶ"
+},
+{
+"no": 240,
+"word": "dawn on ～",
+"mean": "（考えなどが）（人）にわかり始める［思い浮かぶ］"
+},
+{
+"no": 241,
+"word": "make the best of ～",
+"mean": "（不利な状況で）～を最大限に利用する［善処する］"
+},
+{
+"no": 242,
+"word": "make the most of ～",
+"mean": "～を最大限に利用する"
+},
+{
+"no": 243,
+"word": "lay off ～",
+"mean": "～を一時解雇する"
+},
+{
+"no": 244,
+"word": "lay out ～",
+"mean": "～を並べる、～を設計する"
+},
+{
+"no": 245,
+"word": "be concerned about/for ～",
+"mean": "～を心配している"
+},
+{
+"no": 246,
+"word": "be concerned with/in ～",
+"mean": "～に関係している"
+},
+{
+"no": 247,
+"word": "be free from/of ～",
+"mean": "～がない"
+},
+{
+"no": 248,
+"word": "be free to do",
+"mean": "自由に…できる"
+},
+{
+"no": 249,
+"word": "be familiar to ～",
+"mean": "（人）によく知られている"
+},
+{
+"no": 250,
+"word": "be familiar with ～",
+"mean": "（物事）をよく知っている"
+},
+{
+"no": 251,
+"word": "be true of ～",
+"mean": "～に当てはめる"
+},
+{
+"no": 252,
+"word": "be true to ～",
+"mean": "～に忠実である"
+},
+{
+"no": 253,
+"word": "be tired from/with ～",
+"mean": "～で疲れる"
+},
+{
+"no": 254,
+"word": "be tired of ～",
+"mean": "～に飽きる［うんざりしている］"
+},
+{
+"no": 255,
+"word": "be bound for ～",
+"mean": "～行きである"
+},
+{
+"no": 256,
+"word": "be bound to do",
+"mean": "きっと…する、…する責任がある"
+},
+{
+"no": 257,
+"word": "be anxious about ～",
+"mean": "～を心配している"
+},
+{
+"no": 258,
+"word": "be anxious to do",
+"mean": "…したがる"
+},
+{
+"no": 259,
+"word": "～ to come",
+"mean": "（名詞の後に置いて）将来の～、来たるべき～"
+},
+{
+"no": 260,
+"word": "～ to go",
+"mean": "（名詞の後に置いて）あと～、残りの～、持ち帰り用の～"
+},
+{
+"no": 261,
+"word": "anything but ～",
+"mean": "全然～ではない、～どころではない"
+},
+{
+"no": 262,
+"word": "nothing but ～",
+"mean": "ただ～だけ、～にすぎない"
+},
+{
+"no": 263,
+"word": "at first",
+"mean": "最初は"
+},
+{
+"no": 264,
+"word": "for the first time",
+"mean": "初めて"
+},
+{
+"no": 265,
+"word": "in the way (of ～)",
+"mean": "（～の）邪魔になって"
+},
+{
+"no": 266,
+"word": "on the way (to ～)",
+"mean": "（～への）途中で"
+},
+{
+"no": 267,
+"word": "by now",
+"mean": "今はもう、今頃は"
+},
+{
+"no": 268,
+"word": "for now",
+"mean": "今のところは、当分は"
+},
+{
+"no": 269,
+"word": "on the contrary",
+"mean": "それどころか、それに反して"
+},
+{
+"no": 270,
+"word": "to the contrary",
+"mean": "それと反対の［に］"
+},
+{
+"no": 271,
+"word": "in the air",
+"mean": "未決定で、空中で［の］、（雰囲気などが）感じられて"
+},
+{
+"no": 272,
+"word": "on the air",
+"mean": "放送中の［で］"
+},
+{
+"no": 273,
+"word": "by chance",
+"mean": "偶然に"
+},
+{
+"no": 274,
+"word": "by any chance",
+"mean": "（疑問文で）もしかして"
+},
+{
+"no": 275,
+"word": "as a matter of course",
+"mean": "当然のこととして"
+},
+{
+"no": 276,
+"word": "as a matter of fact",
+"mean": "実を言うと、実際は"
+},
+{
+"no": 277,
+"word": "at a distance",
+"mean": "ある距離を置いて"
+},
+{
+"no": 278,
+"word": "in the distance",
+"mean": "遠方に［で］"
+},
+{
+"no": 279,
+"word": "inside out",
+"mean": "裏返して、ひっくり返して"
+},
+{
+"no": 280,
+"word": "upside down",
+"mean": "逆さまに、ひっくり返って"
+},
+{
+"no": 281,
+"word": "provide A with B",
+"mean": "AにBを供給する"
+},
+{
+"no": 282,
+"word": "supply A with B",
+"mean": "AにBを供給する"
+},
+{
+"no": 283,
+"word": "mistake A for B",
+"mean": "AをBと間違える"
+},
+{
+"no": 284,
+"word": "take A for B",
+"mean": "AをBだと（誤って）思う［間違える］"
+},
+{
+"no": 285,
+"word": "look on/upon A as B",
+"mean": "AをBと見なす"
+},
+{
+"no": 286,
+"word": "think of A as B",
+"mean": "AをBと見なす"
+},
+{
+"no": 287,
+"word": "distinguish A from B",
+"mean": "AをBと区別する"
+},
+{
+"no": 288,
+"word": "tell A from B",
+"mean": "AとBを区別する"
+},
+{
+"no": 289,
+"word": "participate in ～",
+"mean": "～に参加する"
+},
+{
+"no": 290,
+"word": "take part in ～",
+"mean": "～に参加する"
+},
+{
+"no": 291,
+"word": "compensate for ～",
+"mean": "～の埋め合わせをする、～を補償する"
+},
+{
+"no": 292,
+"word": "make up (～)",
+"mean": "①～を構成する、～を作り上げる ②仲直りをする ③～の埋め合わせをする"
+},
+{
+"no": 293,
+"word": "care for ～",
+"mean": "①～の世話をする ②～を好む、～を望む"
+},
+{
+"no": 294,
+"word": "look after ～",
+"mean": "～の世話をする"
+},
+{
+"no": 295,
+"word": "show up (～)",
+"mean": "①（予定の所に）現れる ②目立つ、～を目立たせる"
+},
+{
+"no": 296,
+"word": "turn up (～)",
+"mean": "①現れる、起こる ②（ガス・音量など）を大きくする、～を探し出す"
+},
+{
+"no": 297,
+"word": "consist in ～",
+"mean": "～にある"
+},
+{
+"no": 298,
+"word": "lie in ～",
+"mean": "～にある"
+},
+{
+"no": 299,
+"word": "give in (～)",
+"mean": "①屈服する ②～を提出する"
+},
+{
+"no": 300,
+"word": "give way (to ～)",
+"mean": "（～に）屈服する、（～に）道を譲る"
+}
+]

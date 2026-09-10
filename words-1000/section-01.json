@@ -1,0 +1,502 @@
+[
+{
+"no": 1,
+"word": "a piece of ～",
+"mean": "１つの～"
+},
+{
+"no": 2,
+"word": "a couple of ～",
+"mean": "２つの～、２，３の～"
+},
+{
+"no": 3,
+"word": "a number of ～",
+"mean": "いくつもの～、かなり多くの～"
+},
+{
+"no": 4,
+"word": "dozens of ～",
+"mean": "数十もの～、何ダースもの～"
+},
+{
+"no": 5,
+"word": "plenty of ～",
+"mean": "たくさんの～"
+},
+{
+"no": 6,
+"word": "a great/good deal (of ～)",
+"mean": "たくさん（の～）"
+},
+{
+"no": 7,
+"word": "at home",
+"mean": "①在宅して、家庭で ②くつろいで ③精通して"
+},
+{
+"no": 8,
+"word": "in time",
+"mean": "①間に合って ②やがて、そのうちに"
+},
+{
+"no": 9,
+"word": "in fashion",
+"mean": "流行して"
+},
+{
+"no": 10,
+"word": "on time",
+"mean": "時間通りに［で］"
+},
+{
+"no": 11,
+"word": "on duty",
+"mean": "当番で、勤務時間中で"
+},
+{
+"no": 12,
+"word": "on schedule",
+"mean": "予定通りで、定時に"
+},
+{
+"no": 13,
+"word": "up to date",
+"mean": "最新（式）の"
+},
+{
+"no": 14,
+"word": "be aware of ～",
+"mean": "～を知っている、～に気づいている"
+},
+{
+"no": 15,
+"word": "be made of ～",
+"mean": "～でできている"
+},
+{
+"no": 16,
+"word": "be capable of ～",
+"mean": "～ができる、～の可能性がある"
+},
+{
+"no": 17,
+"word": "be afraid of ～",
+"mean": "～を恐れる［怖がる］、～を心配している"
+},
+{
+"no": 18,
+"word": "be sure of/about ～",
+"mean": "～を確信している"
+},
+{
+"no": 19,
+"word": "be composed of ～",
+"mean": "～から構成されている"
+},
+{
+"no": 20,
+"word": "be based on/upon ～",
+"mean": "～に基づいている"
+},
+{
+"no": 21,
+"word": "be different from ～",
+"mean": "～とは違っている"
+},
+{
+"no": 22,
+"word": "be absent from ～",
+"mean": "～を欠席する"
+},
+{
+"no": 23,
+"word": "be engaged in ～",
+"mean": "～に従事している、忙しく～をしている"
+},
+{
+"no": 24,
+"word": "be responsible for ～",
+"mean": "～に責任がある"
+},
+{
+"no": 25,
+"word": "be married (to ～)",
+"mean": "（～と）結婚している"
+},
+{
+"no": 26,
+"word": "be satisfied with ～",
+"mean": "～に満足している"
+},
+{
+"no": 27,
+"word": "be curious about ～",
+"mean": "～を知りたがる、～に好奇心の強い"
+},
+{
+"no": 28,
+"word": "be well off",
+"mean": "裕福である"
+},
+{
+"no": 29,
+"word": "be likely to do",
+"mean": "…しそうである"
+},
+{
+"no": 30,
+"word": "be willing to do",
+"mean": "…してもかまわない"
+},
+{
+"no": 31,
+"word": "be about to do",
+"mean": "今にも…しようとしている"
+},
+{
+"no": 32,
+"word": "lead to ～",
+"mean": "～（という結果）を引き起こす、～へと通じる"
+},
+{
+"no": 33,
+"word": "refer to ～",
+"mean": "①～に言及する ②～を参照する、～に問い合わせる"
+},
+{
+"no": 34,
+"word": "contribute to ～",
+"mean": "～の一因となる、～に貢献する、～に寄付［寄稿］する"
+},
+{
+"no": 35,
+"word": "amount to ～",
+"mean": "総計～になる"
+},
+{
+"no": 36,
+"word": "depend on/upon ～",
+"mean": "～に頼る、～しだいである"
+},
+{
+"no": 37,
+"word": "focus on ～",
+"mean": "～に集中する、～に焦点を合わせる"
+},
+{
+"no": 38,
+"word": "rely on/upon ～",
+"mean": "～に頼る"
+},
+{
+"no": 39,
+"word": "get on (～)",
+"mean": "①（公共の乗り物など）に乗る ②仲良くやっていく、（なんとか）やっていく"
+},
+{
+"no": 40,
+"word": "insist on/upon ～",
+"mean": "～を主張する"
+},
+{
+"no": 41,
+"word": "concentrate on ～",
+"mean": "～に集中する"
+},
+{
+"no": 42,
+"word": "look for ～",
+"mean": "～を探す［捜す］"
+},
+{
+"no": 43,
+"word": "search for ～",
+"mean": "～を探す［捜す］"
+},
+{
+"no": 44,
+"word": "prepare for ～",
+"mean": "～の準備をする、～に備える"
+},
+{
+"no": 45,
+"word": "think of ～",
+"mean": "①～をしようかなと思う、～のことを考える ②～を思いつく ③～を思い出す"
+},
+{
+"no": 46,
+"word": "consist of ～",
+"mean": "～から成り立っている"
+},
+{
+"no": 47,
+"word": "complain about/of ～",
+"mean": "（苦痛など）を訴える、～について不平を言う"
+},
+{
+"no": 48,
+"word": "die of/from ～",
+"mean": "～で死ぬ"
+},
+{
+"no": 49,
+"word": "suffer from ～",
+"mean": "（病気など）で苦しむ［悩む］"
+},
+{
+"no": 50,
+"word": "result from ～",
+"mean": "～から起こる"
+},
+{
+"no": 51,
+"word": "graduate from ～",
+"mean": "～を卒業する"
+},
+{
+"no": 52,
+"word": "differ from ～",
+"mean": "～と異なる"
+},
+{
+"no": 53,
+"word": "recover from ～",
+"mean": "～から立ち直る［回復する］"
+},
+{
+"no": 54,
+"word": "hear from ～",
+"mean": "～から便り［電話・伝言］がある"
+},
+{
+"no": 55,
+"word": "believe in ～",
+"mean": "～の価値［存在］を信じる、～を信用する"
+},
+{
+"no": 56,
+"word": "succeed in ～",
+"mean": "～に成功する"
+},
+{
+"no": 57,
+"word": "major in ～",
+"mean": "（ 大学生が）～を専攻する"
+},
+{
+"no": 58,
+"word": "abound in/with ～",
+"mean": "（場所が）～に富む"
+},
+{
+"no": 59,
+"word": "care about ～",
+"mean": "～に気にかける、～に関心を持つ"
+},
+{
+"no": 60,
+"word": "bring about ～",
+"mean": "～を引き起こす"
+},
+{
+"no": 61,
+"word": "deal with ～",
+"mean": "～を扱う,処理する"
+},
+{
+"no": 62,
+"word": "go through ～",
+"mean": "①～を通過する ②（苦しみなど）を経験する"
+},
+{
+"no": 63,
+"word": "give up ～",
+"mean": "～をあきらめる、～捨てる［やめる］"
+},
+{
+"no": 64,
+"word": "grow up",
+"mean": "大人になる、（事態などが）生じる"
+},
+{
+"no": 65,
+"word": "pick up ～",
+"mean": "～を（車などに）乗せる、～拾う"
+},
+{
+"no": 66,
+"word": "set up ～",
+"mean": "～を立てる［建てる］、～を創設する［始める］"
+},
+{
+"no": 67,
+"word": "wake up (～)",
+"mean": "目が覚める、（人）の目を覚まさせる"
+},
+{
+"no": 68,
+"word": "brush up (on) ～",
+"mean": "（語学など）をやり直して磨きをかける"
+},
+{
+"no": 69,
+"word": "find out ～",
+"mean": "（調査などの結果）を見つけ出す、（真相）を知る"
+},
+{
+"no": 70,
+"word": "carry out ～",
+"mean": "～を実行する"
+},
+{
+"no": 71,
+"word": "point out ～",
+"mean": "～を指摘する"
+},
+{
+"no": 72,
+"word": "figure out (～)",
+"mean": "～を理解する、～を計算する、～を解く"
+},
+{
+"no": 73,
+"word": "turn out (～)",
+"mean": "①～であることが分かる、（結果的に）～になる ②～を産出する ③（催しなどに）繰り出す"
+},
+{
+"no": 74,
+"word": "fill out ～",
+"mean": "（書類など）に書き込む"
+},
+{
+"no": 75,
+"word": "pick out ～",
+"mean": "～を選ぶ"
+},
+{
+"no": 76,
+"word": "put on ～",
+"mean": "～を（身に）つける、（電気器具ガスなど）をつける"
+},
+{
+"no": 77,
+"word": "work on (～)",
+"mean": "①働き続ける ②～に取り組む、～を手がける、～に影響を与える、（薬などが）～に効く"
+},
+{
+"no": 78,
+"word": "try on ～",
+"mean": "～を試着する"
+},
+{
+"no": 79,
+"word": "turn on (～)",
+"mean": "（スイッチなど）をつける、（水・ガスなど）を出す、（明かりなどが）つく"
+},
+{
+"no": 80,
+"word": "turn off (～)",
+"mean": "（スイッチなど）を消す、（水・ガスなど）を止める、（明かりなどが）消える"
+},
+{
+"no": 81,
+"word": "take off (～)",
+"mean": "①～を脱ぐ、～を取り除く ②離陸する、（流行・売り上げなどが）急増［急伸］する ③～を休暇としてとる"
+},
+{
+"no": 82,
+"word": "get along",
+"mean": "①暮らす、（なんとか）やっていく ②仲良くやっていく、進む"
+},
+{
+"no": 83,
+"word": "get together (～)",
+"mean": "集まる、～を集める"
+},
+{
+"no": 84,
+"word": "calm down (～)",
+"mean": "～を落ち着かせる［静める］、落ち着く［静まる］"
+},
+{
+"no": 85,
+"word": "think over ～",
+"mean": "～をよく考える"
+},
+{
+"no": 86,
+"word": "keep doing",
+"mean": "…し続ける"
+},
+{
+"no": 87,
+"word": "take place",
+"mean": "催される、起こる"
+},
+{
+"no": 88,
+"word": "play a role/part (in ～)",
+"mean": "（～で）役割を演じる［果たす］"
+},
+{
+"no": 89,
+"word": "make sure (～)",
+"mean": "（～を）確かめる、確実に～をする"
+},
+{
+"no": 90,
+"word": "make sense",
+"mean": "意味をなす、道理にかなう"
+},
+{
+"no": 91,
+"word": "make a difference",
+"mean": "違いが生じる、重要である"
+},
+{
+"no": 92,
+"word": "make a mistake",
+"mean": "間違いをする"
+},
+{
+"no": 93,
+"word": "make progress",
+"mean": "進歩する"
+},
+{
+"no": 94,
+"word": "make up one's mind",
+"mean": "決心する"
+},
+{
+"no": 95,
+"word": "do one's best",
+"mean": "最善を尽くす"
+},
+{
+"no": 96,
+"word": "keep one's promise/word",
+"mean": "約束を守る"
+},
+{
+"no": 97,
+"word": "get lost",
+"mean": "道に迷う"
+},
+{
+"no": 98,
+"word": "enjoy oneself",
+"mean": "楽しい時を過ごす"
+},
+{
+"no": 99,
+"word": "have/take ～ off",
+"mean": "～を休みとしてとる"
+},
+{
+"no": 100,
+"word": "pay attention to ～",
+"mean": "～に注意を払う"
+}
+]

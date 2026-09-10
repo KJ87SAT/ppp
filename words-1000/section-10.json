@@ -1,0 +1,502 @@
+[
+{
+"no": 901,
+"word": "look ～ in the eye(s)",
+"mean": "～の目を正視する"
+},
+{
+"no": 902,
+"word": "hold true",
+"mean": "当てはまる、有効である"
+},
+{
+"no": 903,
+"word": "come to terms with ～",
+"mean": "～と折り合いがつく、（あきらめて）～を受け入れる"
+},
+{
+"no": 904,
+"word": "come to light",
+"mean": "明るみに出る、現れる"
+},
+{
+"no": 905,
+"word": "come of age",
+"mean": "（法律的に）成人になる"
+},
+{
+"no": 906,
+"word": "come in handy",
+"mean": "役に立つ"
+},
+{
+"no": 907,
+"word": "fall short of ～",
+"mean": "（目標・基準など）に達しない"
+},
+{
+"no": 908,
+"word": "go a long way to do",
+"mean": "…するのに大いに役立つ"
+},
+{
+"no": 909,
+"word": "pave the way for/to ～",
+"mean": "～への準備をする[道を開く]"
+},
+{
+"no": 910,
+"word": "put ～ to use",
+"mean": "～を利用する"
+},
+{
+"no": 911,
+"word": "stand to reason",
+"mean": "もっともである、理屈に合う"
+},
+{
+"no": 912,
+"word": "see/do the sights (of～)",
+"mean": "（～の）観光をする"
+},
+{
+"no": 913,
+"word": "read between the line",
+"mean": "行間を読む、真意をつかむ"
+},
+{
+"no": 914,
+"word": "follow suit",
+"mean": "人のまねをする、先例になろう"
+},
+{
+"no": 915,
+"word": "play a joke on ～",
+"mean": "～に（悪意のない）いたずらをする"
+},
+{
+"no": 916,
+"word": "get on ～'s nerves",
+"mean": "～の神経にさわる"
+},
+{
+"no": 917,
+"word": "get/have the better of ～",
+"mean": "～に勝つ、～を出し抜く"
+},
+{
+"no": 918,
+"word": "get/be even with ～",
+"mean": "（人）に仕返しをする[恨みを晴らす]"
+},
+{
+"no": 919,
+"word": "hold/keep ～ in check",
+"mean": "～を抑える[食い止める]"
+},
+{
+"no": 920,
+"word": "have an eye for ～",
+"mean": "～に対する眼識[鑑識力]がある"
+},
+{
+"no": 921,
+"word": "have ～ on one's mind",
+"mean": "～を気にしている[心配している]"
+},
+{
+"no": 922,
+"word": "have yet to do",
+"mean": "まだ…していない、これから…しなければならない"
+},
+{
+"no": 923,
+"word": "dare to do",
+"mean": "思い切って[あえて]…する"
+},
+{
+"no": 924,
+"word": "impose A on/upon B",
+"mean": "AをBに課す[押しつける]"
+},
+{
+"no": 925,
+"word": "ascribe A to B",
+"mean": "AをBのせいにする"
+},
+{
+"no": 926,
+"word": "bring A home to B",
+"mean": "A(ある事柄)をB(人)に痛感させる"
+},
+{
+"no": 927,
+"word": "a variety of ～",
+"mean": "①（同一種類のもので）いろいろ[さまざま]な～ ②～の１種[１つの型]"
+},
+{
+"no": 928,
+"word": "a handful of ～",
+"mean": "一握りの～、少数[量]の～"
+},
+{
+"no": 929,
+"word": "a host of ～",
+"mean": "多数の～"
+},
+{
+"no": 930,
+"word": "scores of ～",
+"mean": "多数の～"
+},
+{
+"no": 931,
+"word": "many a/an ～",
+"mean": "多くの～、あまたの～"
+},
+{
+"no": 932,
+"word": "quite a few ～",
+"mean": "かなりの数の～"
+},
+{
+"no": 933,
+"word": "all manner of ～",
+"mean": "あらゆる種類の～"
+},
+{
+"no": 934,
+"word": "(all) on one's own",
+"mean": "（すべて）自分1人で、（すべて）独力で"
+},
+{
+"no": 935,
+"word": "at issue",
+"mean": "問題の、論争中の[で]"
+},
+{
+"no": 936,
+"word": "at ～'s disposal",
+"mean": "（人）の自由になって[使えて]"
+},
+{
+"no": 937,
+"word": "at stake",
+"mean": "危うくなった[て]、賭けられた[て]"
+},
+{
+"no": 938,
+"word": "(enough) ～ to go around",
+"mean": "全員に行き渡るだけの～"
+},
+{
+"no": 939,
+"word": "every other ～",
+"mean": "①１つおきの～、～おきに ②残りのすべての～"
+},
+{
+"no": 940,
+"word": "for a rainy day",
+"mean": "（将来）まさかの時[緊急時]に備えて"
+},
+{
+"no": 941,
+"word": "in earnest",
+"mean": "本格的に、熱心に"
+},
+{
+"no": 942,
+"word": "in (good) shape",
+"mean": "調子が良くて"
+},
+{
+"no": 943,
+"word": "in store (for～)",
+"mean": "（～のために）用意して、（～の身に）降りかかろうとして"
+},
+{
+"no": 944,
+"word": "in the works",
+"mean": "準備[計画・進行]中で"
+},
+{
+"no": 945,
+"word": "nothing short of ～",
+"mean": "まさしく～（の）"
+},
+{
+"no": 946,
+"word": "～ of one's own",
+"mean": "自分自身の～"
+},
+{
+"no": 947,
+"word": "of one's (own) doing",
+"mean": "（人）が…した"
+},
+{
+"no": 948,
+"word": "on the move",
+"mean": "（忙しく）移動中の[で]、活躍中の[で]"
+},
+{
+"no": 949,
+"word": "on the ～ side",
+"mean": "～気味で[の]"
+},
+{
+"no": 950,
+"word": "out of hand",
+"mean": "①手に負えない ②即座に"
+},
+{
+"no": 951,
+"word": "out of the question",
+"mean": "あり得ない、不可能で"
+},
+{
+"no": 952,
+"word": "per capita",
+"mean": "一人当たりの[で]"
+},
+{
+"no": 953,
+"word": "right as rain",
+"mean": "すっかり健康[正常]で"
+},
+{
+"no": 954,
+"word": "second to none",
+"mean": "誰[何]にも劣らない"
+},
+{
+"no": 955,
+"word": "something of a ～",
+"mean": "ちょっとした～、ある程度の～"
+},
+{
+"no": 956,
+"word": "upward(s) of ～",
+"mean": "～以上（の）"
+},
+{
+"no": 957,
+"word": "regardless of ～",
+"mean": "～に（も）かかわらず、～に関係なく"
+},
+{
+"no": 958,
+"word": "in accordance with ～",
+"mean": "～に従って、～に応じて"
+},
+{
+"no": 959,
+"word": "in proportion to ～",
+"mean": "～に比例して"
+},
+{
+"no": 960,
+"word": "in the wake of ～",
+"mean": "～の通過後[跡]に、～の結果として"
+},
+{
+"no": 961,
+"word": "as of ～",
+"mean": "～現在で、～の時点で"
+},
+{
+"no": 962,
+"word": "but for ～",
+"mean": "～がないならば"
+},
+{
+"no": 963,
+"word": "on ～ terms with …",
+"mean": "…と～の関係[間柄]で"
+},
+{
+"no": 964,
+"word": "on the verge of ～",
+"mean": "～をしそうで、～の瀬戸際で"
+},
+{
+"no": 965,
+"word": "within walking distance of ～",
+"mean": "～から歩いて行けるところに"
+},
+{
+"no": 966,
+"word": "to the effect that …",
+"mean": "…という趣旨の[で]"
+},
+{
+"no": 967,
+"word": "a case in point",
+"mean": "適例"
+},
+{
+"no": 968,
+"word": "the pros and cons",
+"mean": "賛否両論"
+},
+{
+"no": 969,
+"word": "a white elephant",
+"mean": "無用の長物"
+},
+{
+"no": 970,
+"word": "the elephant in the room",
+"mean": "誰も触れたがらない話題"
+},
+{
+"no": 971,
+"word": "part and parcel (of ～)",
+"mean": "（～の）不可分の要素、（～の）最重要部分"
+},
+{
+"no": 972,
+"word": "all along",
+"mean": "最初からずっと"
+},
+{
+"no": 973,
+"word": "all too",
+"mean": "とても、非常に"
+},
+{
+"no": 974,
+"word": "as such",
+"mean": "そういうものとして、それ自体では"
+},
+{
+"no": 975,
+"word": "(at) first hand",
+"mean": "直接に、じかに"
+},
+{
+"no": 976,
+"word": "at ～'s convenience",
+"mean": "～の都合の良いときに"
+},
+{
+"no": 977,
+"word": "at/on short notice",
+"mean": "急に、即座に"
+},
+{
+"no": 978,
+"word": "at will",
+"mean": "思いのままに、随意に"
+},
+{
+"no": 979,
+"word": "by and large",
+"mean": "概して"
+},
+{
+"no": 980,
+"word": "down the road",
+"mean": "（口論で）やがては、将来は"
+},
+{
+"no": 981,
+"word": "early on",
+"mean": "早い時期に、早くから"
+},
+{
+"no": 982,
+"word": "for a change",
+"mean": "気分転換に、たまには"
+},
+{
+"no": 983,
+"word": "for all I know",
+"mean": "よくは知らないが、たぶん"
+},
+{
+"no": 984,
+"word": "for nothing",
+"mean": "①無料で ②無駄に"
+},
+{
+"no": 985,
+"word": "if anything",
+"mean": "どちらかと言えば、もしあるとしても"
+},
+{
+"no": 986,
+"word": "in a row",
+"mean": "連続して"
+},
+{
+"no": 987,
+"word": "in person",
+"mean": "（代理人でなく）じかに、自ら"
+},
+{
+"no": 988,
+"word": "in retrospect",
+"mean": "（過去を）振り返って（みて）"
+},
+{
+"no": 989,
+"word": "more often than not",
+"mean": "普通は、たいてい"
+},
+{
+"no": 990,
+"word": "on second thought",
+"mean": "考え直してみて"
+},
+{
+"no": 991,
+"word": "on the face of it",
+"mean": "見たところは、表面上は"
+},
+{
+"no": 992,
+"word": "on the spot",
+"mean": "①その場で、即座に ②（口語で）窮地に立って、困って"
+},
+{
+"no": 993,
+"word": "once (and) for all",
+"mean": "きっぱりと、これを最後に"
+},
+{
+"no": 994,
+"word": "one of these days",
+"mean": "そのうちに"
+},
+{
+"no": 995,
+"word": "once upon a time",
+"mean": "昔々"
+},
+{
+"no": 996,
+"word": "only too",
+"mean": "①（glad, happy, pleased などの前で）とても、大いに ②遺憾[残念]ながら"
+},
+{
+"no": 997,
+"word": "sort/kind of ～",
+"mean": "ちょっと、なんとなく"
+},
+{
+"no": 998,
+"word": "such as it is",
+"mean": "大したものではないが、こんな程度のものだが、"
+},
+{
+"no": 999,
+"word": "the other way around/round/about",
+"mean": "逆に、あべこべに"
+},
+{
+"no": 1000,
+"word": "to date",
+"mean": "現在まで（のところ）"
+}
+]

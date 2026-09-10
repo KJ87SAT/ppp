@@ -1,0 +1,502 @@
+[
+{
+"no": 301,
+"word": "stand out",
+"mean": "際立つ、目立つ"
+},
+{
+"no": 302,
+"word": "stick out",
+"mean": "突き出る、目立つ"
+},
+{
+"no": 303,
+"word": "cling to ～",
+"mean": "～にくっつく、～に固執［執着］する"
+},
+{
+"no": 304,
+"word": "stick to ～",
+"mean": "（主義・決定など）を堅持する、～にくっつく"
+},
+{
+"no": 305,
+"word": "count on/upon ～",
+"mean": "～に頼る、～を当てする"
+},
+{
+"no": 306,
+"word": "rest on/upon",
+"mean": "～に基づく、～に頼る"
+},
+{
+"no": 307,
+"word": "look out for ～",
+"mean": "～に気をつける"
+},
+{
+"no": 308,
+"word": "watch out for ～",
+"mean": "～に気をつける"
+},
+{
+"no": 309,
+"word": "hand over ～",
+"mean": "～を引き渡す、～を手渡す"
+},
+{
+"no": 310,
+"word": "turn over ～",
+"mean": "①～を引き渡す、～を譲る ②～をひっくり返す、（ページなど）をめくる、ひっくり返る"
+},
+{
+"no": 311,
+"word": "date back to ～",
+"mean": "～にさかのぼる、～に始まる"
+},
+{
+"no": 312,
+"word": "date from ～",
+"mean": "～から始まる、～にさかのぼる"
+},
+{
+"no": 313,
+"word": "put aside ～",
+"mean": "～を蓄える、～をわきに置く、～を取っておく"
+},
+{
+"no": 314,
+"word": "set aside ～",
+"mean": "～を蓄える、～を取っておく、～をわきに置く"
+},
+{
+"no": 315,
+"word": "sit up",
+"mean": "①（寝ないで）起きている ②（寝た状態から）上半身を起こす ③きちんと座る"
+},
+{
+"no": 316,
+"word": "stay up",
+"mean": "（寝ないで）起きている"
+},
+{
+"no": 317,
+"word": "hold back ～",
+"mean": "～を制止する、（真相など）を隠す"
+},
+{
+"no": 318,
+"word": "keep back ～",
+"mean": "（真相など）を隠す、～を制止する"
+},
+{
+"no": 319,
+"word": "feel sorry for ～",
+"mean": "～を気の毒に思う、～に同情する"
+},
+{
+"no": 320,
+"word": "take/have pity on ～",
+"mean": "～に同情する"
+},
+{
+"no": 321,
+"word": "sympathize with ～",
+"mean": "～に同情する"
+},
+{
+"no": 322,
+"word": "take pride in ～",
+"mean": "～を誇り［自慢］に思う"
+},
+{
+"no": 323,
+"word": "pride oneself on ～",
+"mean": "～を誇り［自慢］に思う"
+},
+{
+"no": 324,
+"word": "surrender to ～",
+"mean": "～に屈する"
+},
+{
+"no": 325,
+"word": "yield to ～",
+"mean": "～に屈する、～に道を譲る"
+},
+{
+"no": 326,
+"word": "be essential to ～",
+"mean": "～にとって不可欠である"
+},
+{
+"no": 327,
+"word": "be indispensable to/for ～",
+"mean": "～にとって不可欠である"
+},
+{
+"no": 328,
+"word": "be equal to ～",
+"mean": "～に等しい"
+},
+{
+"no": 329,
+"word": "be equivalent to ～",
+"mean": "～に等しい"
+},
+{
+"no": 330,
+"word": "be apt to do",
+"mean": "～しがちである"
+},
+{
+"no": 331,
+"word": "be inclined to do",
+"mean": "～する傾向がある、～したい気がする"
+},
+{
+"no": 332,
+"word": "in a sense",
+"mean": "ある意味では、ある点で"
+},
+{
+"no": 333,
+"word": "in a way",
+"mean": "ある意味では、ある点で"
+},
+{
+"no": 334,
+"word": "first of all",
+"mean": "まず第一に"
+},
+{
+"no": 335,
+"word": "in the first place",
+"mean": "まず第一に"
+},
+{
+"no": 336,
+"word": "back and forth",
+"mean": "行ったり来たり、前後［左右］に"
+},
+{
+"no": 337,
+"word": "up and down",
+"mean": "行ったり来たり、上下に"
+},
+{
+"no": 338,
+"word": "at present",
+"mean": "現在は、目下"
+},
+{
+"no": 339,
+"word": "at the moment",
+"mean": "（現在時制で）現在は、（過去時制で）ちょうどその時"
+},
+{
+"no": 340,
+"word": "in a word",
+"mean": "要するに、つまり"
+},
+{
+"no": 341,
+"word": "in short",
+"mean": "つまり、手短に言えば"
+},
+{
+"no": 342,
+"word": "generally speaking",
+"mean": "一般的に言えば"
+},
+{
+"no": 343,
+"word": "on the whole",
+"mean": "全体的には、概して"
+},
+{
+"no": 344,
+"word": "all in all",
+"mean": "全体的には、概して"
+},
+{
+"no": 345,
+"word": "in principle",
+"mean": "理論的に（は）、原則的に（は）"
+},
+{
+"no": 346,
+"word": "in theory",
+"mean": "理論上は"
+},
+{
+"no": 347,
+"word": "at all cost(s)/any cost",
+"mean": "ぜひとも"
+},
+{
+"no": 348,
+"word": "by all means",
+"mean": "①ぜひとも、必ず ②（承諾の返事として）ぜひどうぞ"
+},
+{
+"no": 349,
+"word": "as it were",
+"mean": "いわば"
+},
+{
+"no": 350,
+"word": "so to speak",
+"mean": "いわば"
+},
+{
+"no": 351,
+"word": "for one's (own) part",
+"mean": "～としては、～に関する限りは"
+},
+{
+"no": 352,
+"word": "on one's part",
+"mean": "～の側での、～としては"
+},
+{
+"no": 353,
+"word": "for the present",
+"mean": "当分の間（は）、差し当たり"
+},
+{
+"no": 354,
+"word": "for the time being",
+"mean": "当分の間（は）、差し当たり"
+},
+{
+"no": 355,
+"word": "close/near at hand",
+"mean": "（距離・時間的に）すぐ近くに"
+},
+{
+"no": 356,
+"word": "(just) around the corner",
+"mean": "（距離・時間的に）すぐ近くに"
+},
+{
+"no": 357,
+"word": "for all ～",
+"mean": "～にもかかわらず"
+},
+{
+"no": 358,
+"word": "with all ～",
+"mean": "～にもかかわらず"
+},
+{
+"no": 359,
+"word": "as for ～",
+"mean": "（人・物）～について言えば、～に関する限り"
+},
+{
+"no": 360,
+"word": "as to ～",
+"mean": "（物）～に関しては"
+},
+{
+"no": 361,
+"word": "not to mention ～",
+"mean": "～は言うまでもなく"
+},
+{
+"no": 362,
+"word": "to say nothing of ～",
+"mean": "～は言うまでもなく"
+},
+{
+"no": 363,
+"word": "be dependent on/upon ～",
+"mean": "～に依存している"
+},
+{
+"no": 364,
+"word": "be independent of ～",
+"mean": "～から独立している"
+},
+{
+"no": 365,
+"word": "in order",
+"mean": "整頓されて、順調で、適切で"
+},
+{
+"no": 366,
+"word": "out of order",
+"mean": "故障して、順序が狂って"
+},
+{
+"no": 367,
+"word": "look down on/upon ～",
+"mean": "～を見下す"
+},
+{
+"no": 368,
+"word": "look up to ～",
+"mean": "～を尊敬する"
+},
+{
+"no": 369,
+"word": "do with ～",
+"mean": "①（couldを伴って）～があればありがたい ②（受動態で）～をすませた、～を縁を切った ③（whatを使った疑問文・否定文で）を処理［処置］する"
+},
+{
+"no": 370,
+"word": "do without ～",
+"mean": "～なしですます"
+},
+{
+"no": 371,
+"word": "in/within sight",
+"mean": "見えて、視界に入って"
+},
+{
+"no": 372,
+"word": "out of sight",
+"mean": "見えなくて、視界から消えて"
+},
+{
+"no": 373,
+"word": "at one's ease",
+"mean": "くつろいで"
+},
+{
+"no": 374,
+"word": "ill at ease",
+"mean": "不安で、落ち着かないで"
+},
+{
+"no": 375,
+"word": "act on/upon ～",
+"mean": "①～に取り組む、～に作用する ②（命令・信念など）に従って行動する"
+},
+{
+"no": 376,
+"word": "break in ～",
+"mean": "①押し入る、口を挟む ②～を慣らす"
+},
+{
+"no": 377,
+"word": "break out",
+"mean": "①（火事・戦争などが）起こる ②（汗・吹き出物などが）出る、急にしだす"
+},
+{
+"no": 378,
+"word": "break up ～",
+"mean": "①ばらばらになる［解散する］、～をばらばらにする［解散させる］ ②（人が）別れる、（関係などが）終わる、～を終わらせる"
+},
+{
+"no": 379,
+"word": "call for ～",
+"mean": "①～を必要とする、～を求める ②（人）を誘い［迎え］に行く、（物）を取りに行く"
+},
+{
+"no": 380,
+"word": "call on/upon ～",
+"mean": "①（人）を訪問する ②～に要求する"
+},
+{
+"no": 381,
+"word": "come across ～",
+"mean": "①～を偶然見つける、～に偶然出会う ②（考えなどが）（相手に）伝わる［理解される］"
+},
+{
+"no": 382,
+"word": "come to ～",
+"mean": "①～に達する、～に来る ②（～to do）…するようになる③意識を回復する、正気に戻る"
+},
+{
+"no": 383,
+"word": "give out ～",
+"mean": "①～を配る、～を発する ②（供給物・力などが）尽きる［なくなる］"
+},
+{
+"no": 384,
+"word": "go by ～",
+"mean": "①（時などが）たつ、通り過ぎる ②～の名で通る［知られる］、～によって行動［判断］する"
+},
+{
+"no": 385,
+"word": "go off",
+"mean": "①出かける、去る、（電灯などが）消える ②（仕掛けが）作動する、（爆薬が）爆発する、（銃などが）発射される"
+},
+{
+"no": 386,
+"word": "go on ～",
+"mean": "①（状況などが）続く、（時間が）過ぎる ②（進行形で）起こる、行われる ③（旅行など）に出かける"
+},
+{
+"no": 387,
+"word": "go out",
+"mean": "①出かける②（灯火などが）消える、気絶する、死ぬ"
+},
+{
+"no": 388,
+"word": "go over ～",
+"mean": "①～に詳細に目を通す、～を調べる ②～を復習する、～を繰り返す"
+},
+{
+"no": 389,
+"word": "go with ～",
+"mean": "①～と付き合う、～と一緒に行く ②～に似合う"
+},
+{
+"no": 390,
+"word": "hold out ～",
+"mean": "①（手など）を差し出す ②（希望など）を抱かせる、持ちこたえる［耐える］"
+},
+{
+"no": 391,
+"word": "hold up ～",
+"mean": "①～を持ち上げる、～を支える、持ちこたえる ②～を遅らせる ③～に強盗に入る"
+},
+{
+"no": 392,
+"word": "live on ～",
+"mean": "①～を常食にする ②（～の収入・金額）で生活する ③生き続ける"
+},
+{
+"no": 393,
+"word": "look to ～",
+"mean": "①～の方を見る、～に気をつける ②～に頼る、～を当てにする"
+},
+{
+"no": 394,
+"word": "look up ～",
+"mean": "①（辞書などで）～を調べる ②（人）を訪ねる ③（景気などが）上向く［好転する］"
+},
+{
+"no": 395,
+"word": "put out ～",
+"mean": "①（火・明かりなど）を消す ②～を出す"
+},
+{
+"no": 396,
+"word": "settle down",
+"mean": "①定住する、落ち着く ②（腰を据えて）始める"
+},
+{
+"no": 397,
+"word": "stand by ～",
+"mean": "①傍観する、待機する ②～を支持［擁護］する、（約束など）を守る"
+},
+{
+"no": 398,
+"word": "stand for ～",
+"mean": "①～意味する、～の略である ②（否定文・疑問文で）～を許容する、を我慢する"
+},
+{
+"no": 399,
+"word": "take in ～",
+"mean": "①～を取り入れる、～を理解する ②～をだます ③～を見物をする"
+},
+{
+"no": 400,
+"word": "take on ～",
+"mean": "①～を引き受ける、～を雇う ②（様相・色・性質など）を呈する［帯びる］"
+}
+]

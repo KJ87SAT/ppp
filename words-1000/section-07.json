@@ -1,0 +1,502 @@
+[
+{
+"no": 601,
+"word": "in need of ～",
+"mean": "～を必要として"
+},
+{
+"no": 602,
+"word": "in response to ～",
+"mean": "～に応じて［答えて］"
+},
+{
+"no": 603,
+"word": "in favor of ～",
+"mean": "～に賛成して、～のほうを選んで"
+},
+{
+"no": 604,
+"word": "in (the) face of ～",
+"mean": "～に直面して、～にもかかわらず"
+},
+{
+"no": 605,
+"word": "in charge of ～",
+"mean": "～を預かって［管理して］"
+},
+{
+"no": 606,
+"word": "in relation to ～",
+"mean": "～と比べて、～に関連して"
+},
+{
+"no": 607,
+"word": "in place of ～",
+"mean": "～の代わりに"
+},
+{
+"no": 608,
+"word": "in the presence of ～",
+"mean": "～のいるところ［面前］で"
+},
+{
+"no": 609,
+"word": "in honor of ～",
+"mean": "～に敬意を表して、～のために"
+},
+{
+"no": 610,
+"word": "in (the) light of ～",
+"mean": "～から見て、～を考慮して"
+},
+{
+"no": 611,
+"word": "in harmony with ～",
+"mean": "～と調和［一致］して"
+},
+{
+"no": 612,
+"word": "in exchange for ～",
+"mean": "～と交換に"
+},
+{
+"no": 613,
+"word": "for the sake of ～",
+"mean": "～のために"
+},
+{
+"no": 614,
+"word": "for fear of ～",
+"mean": "～を恐れて"
+},
+{
+"no": 615,
+"word": "for lack/want of ～",
+"mean": "～がない［不足している］ために"
+},
+{
+"no": 616,
+"word": "at the expense of ～",
+"mean": "～を犠牲にして"
+},
+{
+"no": 617,
+"word": "at (the) sight of ～",
+"mean": "～を見て"
+},
+{
+"no": 618,
+"word": "at the mercy of ～",
+"mean": "～のなすがままになって"
+},
+{
+"no": 619,
+"word": "as opposed to ～",
+"mean": "～ではなく、～とは対照的に"
+},
+{
+"no": 620,
+"word": "by means of ～",
+"mean": "～を用いて、～によって"
+},
+{
+"no": 621,
+"word": "by/in virtue of ～",
+"mean": "～のおかげで、～によって"
+},
+{
+"no": 622,
+"word": "on/in behalf of ～",
+"mean": "～を代表して、～のために"
+},
+{
+"no": 623,
+"word": "on a/the charge of ～",
+"mean": "～の容疑［罪］で"
+},
+{
+"no": 624,
+"word": "with/in regard to ～",
+"mean": "～に関して（は）"
+},
+{
+"no": 625,
+"word": "in part",
+"mean": "一部には、幾分（かは）"
+},
+{
+"no": 626,
+"word": "in turn",
+"mean": "徐々に、（立ち代わって）次に（は）"
+},
+{
+"no": 627,
+"word": "in place",
+"mean": "あるべき場所に、きちんと整って、用意ができて"
+},
+{
+"no": 628,
+"word": "in practice",
+"mean": "実際には"
+},
+{
+"no": 629,
+"word": "in demand",
+"mean": "需要があって、必要とされて"
+},
+{
+"no": 630,
+"word": "in the meantime/meanwhile",
+"mean": "その間（に）、一方で、話は変わって"
+},
+{
+"no": 631,
+"word": "in all likelihood",
+"mean": "十中八九、おおかた"
+},
+{
+"no": 632,
+"word": "at work",
+"mean": "①職業で、仕事中で[の] ②作用して、運転［作動］中で[の]"
+},
+{
+"no": 633,
+"word": "at risk",
+"mean": "危険な状態で"
+},
+{
+"no": 634,
+"word": "at a loss",
+"mean": "途方に暮れて、困って、損をして"
+},
+{
+"no": 635,
+"word": "at first sight",
+"mean": "一見したところでは、ひと目で[の]"
+},
+{
+"no": 636,
+"word": "at heart",
+"mean": "心の底では、本当は"
+},
+{
+"no": 637,
+"word": "at intervals",
+"mean": "時折、あちこちに"
+},
+{
+"no": 638,
+"word": "on the/an average",
+"mean": "平均して"
+},
+{
+"no": 639,
+"word": "on a ～ basis",
+"mean": "～の基準[原則]で"
+},
+{
+"no": 640,
+"word": "on a ～ scale",
+"mean": "～な規模で[の]"
+},
+{
+"no": 641,
+"word": "on display",
+"mean": "陳列中で[の]、展示して"
+},
+{
+"no": 642,
+"word": "on the increase",
+"mean": "増加中で"
+},
+{
+"no": 643,
+"word": "on (one's) guard",
+"mean": "警戒して"
+},
+{
+"no": 644,
+"word": "to ～ extent/degree",
+"mean": "～の程度に"
+},
+{
+"no": 645,
+"word": "to one's surprise",
+"mean": "～が驚いたことには"
+},
+{
+"no": 646,
+"word": "to the point",
+"mean": "要を得た、適切な"
+},
+{
+"no": 647,
+"word": "to make matters/things worse",
+"mean": "さらに悪いことに"
+},
+{
+"no": 648,
+"word": "to one's advantage",
+"mean": "（人）に都合がよい[よく]、（人）に有利な[に]"
+},
+{
+"no": 649,
+"word": "from ～ on/onward(s)",
+"mean": "～から以後は"
+},
+{
+"no": 650,
+"word": "from ～ point of view",
+"mean": "～の視点から（は）"
+},
+{
+"no": 651,
+"word": "for sure/certain",
+"mean": "確かに"
+},
+{
+"no": 652,
+"word": "under way",
+"mean": "（計画などが）進行中で"
+},
+{
+"no": 653,
+"word": "under construction",
+"mean": "建築[工事]中で"
+},
+{
+"no": 654,
+"word": "of late",
+"mean": "最近、近ごろ"
+},
+{
+"no": 655,
+"word": "of one's own accord/free will",
+"mean": "自分の意志で、自発的に"
+},
+{
+"no": 656,
+"word": "without fail",
+"mean": "必ず、間違いなく"
+},
+{
+"no": 657,
+"word": "behind the times",
+"mean": "時代遅れの[で]"
+},
+{
+"no": 658,
+"word": "beyond description",
+"mean": "言葉では表現できないほどの[に]"
+},
+{
+"no": 659,
+"word": "out of breath",
+"mean": "息切れして"
+},
+{
+"no": 660,
+"word": "out of character",
+"mean": "（その人の）性格に合わない[調和しない]、役に不向きな"
+},
+{
+"no": 661,
+"word": "no matter how/what/when, etc …",
+"mean": "どんなに[何が・いつなど]…でも"
+},
+{
+"no": 662,
+"word": "what we call ～",
+"mean": "いわゆる～"
+},
+{
+"no": 663,
+"word": "what ～ is",
+"mean": "現在の～"
+},
+{
+"no": 664,
+"word": "～ will do",
+"mean": "～は役に立つ[用が足りる]"
+},
+{
+"no": 665,
+"word": "may well do",
+"mean": "おそらく…するだろう、…するのはもっともだ"
+},
+{
+"no": 666,
+"word": "might (just) as well do",
+"mean": "…するのも同じだ、（気は進まないが）～してもよい、（どうせなら）…するほうがいい"
+},
+{
+"no": 667,
+"word": "cannot ～ too …",
+"mean": "いくら～してもしすぎることはない"
+},
+{
+"no": 668,
+"word": "the last ～ to do",
+"mean": "最も…しそうにない～"
+},
+{
+"no": 669,
+"word": "have A to do with B",
+"mean": "ＢとＡの関係がある"
+},
+{
+"no": 670,
+"word": "to tell (you) the truth",
+"mean": "実を言えば"
+},
+{
+"no": 671,
+"word": "needless to say",
+"mean": "言うまでもなく"
+},
+{
+"no": 672,
+"word": "feel like doing",
+"mean": "…したい気がする"
+},
+{
+"no": 673,
+"word": "be used to doing",
+"mean": "…することに慣れている"
+},
+{
+"no": 674,
+"word": "cannot help doing",
+"mean": "…せずにはいられない、…せざるを得ない"
+},
+{
+"no": 675,
+"word": "come close/near to doing",
+"mean": "もう少しで…しそうになる"
+},
+{
+"no": 676,
+"word": "with a view to doing",
+"mean": "…する目的で"
+},
+{
+"no": 677,
+"word": "joking/kidding aside",
+"mean": "冗談はさておき"
+},
+{
+"no": 678,
+"word": "catch ～ doing",
+"mean": "（人）が…しているところを見つける[捕らえる]"
+},
+{
+"no": 679,
+"word": "speaking/talking of ～",
+"mean": "～と言えば"
+},
+{
+"no": 680,
+"word": "judging from/by ～",
+"mean": "～から判断すると"
+},
+{
+"no": 681,
+"word": "that is (to say)",
+"mean": "すなわち、つまり"
+},
+{
+"no": 682,
+"word": "in itself",
+"mean": "それ自体では、本来は"
+},
+{
+"no": 683,
+"word": "to oneself",
+"mean": "①自分だけ（が使うの）に ②自分自身に、心の中に[で]"
+},
+{
+"no": 684,
+"word": "one after another",
+"mean": "次々に"
+},
+{
+"no": 685,
+"word": "none other than ～",
+"mean": "ほかならぬ～、まさに～"
+},
+{
+"no": 686,
+"word": "would/had rather do (than ～)",
+"mean": "（～するよりも）むしろ…したい"
+},
+{
+"no": 687,
+"word": "as many/much as ～",
+"mean": "～もの数[量]の、～と同数[量]の"
+},
+{
+"no": 688,
+"word": "as good as ～",
+"mean": "～も同然、ほとんど～"
+},
+{
+"no": 689,
+"word": "as ～ as any",
+"mean": "誰[どれ]にも劣らず～"
+},
+{
+"no": 690,
+"word": "all the + 比較級",
+"mean": "ますます～、それだけいっそう～"
+},
+{
+"no": 691,
+"word": "that much + 比較級",
+"mean": "（口語で）それだけいっそう～"
+},
+{
+"no": 692,
+"word": "much/still less ～",
+"mean": "（否定文中で）まして～はない"
+},
+{
+"no": 693,
+"word": "what is more",
+"mean": "さらに、おまけに"
+},
+{
+"no": 694,
+"word": "know better (than to do)",
+"mean": "（…しないだけの）分別がある、（…するほど）ばかではない"
+},
+{
+"no": 695,
+"word": "Couldn't be better.",
+"mean": "最高です、これ以上良い状態はあり得ない"
+},
+{
+"no": 696,
+"word": "worse still/yet",
+"mean": "いっそう悪いことに"
+},
+{
+"no": 697,
+"word": "to the best of one's knowledge",
+"mean": "（人）の知る限り（では）"
+},
+{
+"no": 698,
+"word": "not ～ (in) the least",
+"mean": "まったく～ない"
+},
+{
+"no": 699,
+"word": "to the full/fullest",
+"mean": "心ゆくまで、十分に"
+},
+{
+"no": 700,
+"word": "by far",
+"mean": "はるかに、ずっと"
+}
+]

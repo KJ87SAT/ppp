@@ -1,0 +1,502 @@
+[
+{
+"no": 801,
+"word": "take office",
+"mean": "（公職に）就任する"
+},
+{
+"no": 802,
+"word": "turn a blind eye to ～",
+"mean": "～を見て見ぬふりをする"
+},
+{
+"no": 803,
+"word": "last but not least",
+"mean": "最後になったが"
+},
+{
+"no": 804,
+"word": "know ～ by sight",
+"mean": "～の顔を（見て）知っている"
+},
+{
+"no": 805,
+"word": "pull ～'s leg",
+"mean": "（口調で）～をからかう[かつぐ]"
+},
+{
+"no": 806,
+"word": "the bottom line",
+"mean": "（口語で）要点、（決算書の最下行の）数字、最終結果"
+},
+{
+"no": 807,
+"word": "have/take a look (at ～)",
+"mean": "（～を）見る"
+},
+{
+"no": 808,
+"word": "What ～ like?",
+"mean": "～はどんなものか"
+},
+{
+"no": 809,
+"word": "What ～ for?",
+"mean": "どうして～か何の目的で～か"
+},
+{
+"no": 810,
+"word": "have no idea",
+"mean": "見当がつかない"
+},
+{
+"no": 811,
+"word": "could use ～",
+"mean": "（口語で）～があればありがたい、～が欲しい"
+},
+{
+"no": 812,
+"word": "How come SV?",
+"mean": "どうして…か [= Why(…)?]"
+},
+{
+"no": 813,
+"word": "take one's time",
+"mean": "（時間をかけて）ゆっくりやる、自分のペースでやる"
+},
+{
+"no": 814,
+"word": "take it easy",
+"mean": "のんびり構える"
+},
+{
+"no": 815,
+"word": "My pleasure.",
+"mean": "（お礼の言葉に対して）どういたしまして"
+},
+{
+"no": 816,
+"word": "make oneself understood",
+"mean": "自分の言うことを相手に分からせる"
+},
+{
+"no": 817,
+"word": "see much of ～",
+"mean": "～によく会う"
+},
+{
+"no": 818,
+"word": "think again",
+"mean": "考え直す、考えを変える"
+},
+{
+"no": 819,
+"word": "help oneself to ～",
+"mean": "～を自由に取る"
+},
+{
+"no": 820,
+"word": "I'm afraid not.",
+"mean": "残念ながらそうではないようです"
+},
+{
+"no": 821,
+"word": "treat A to B",
+"mean": "A(人)にB(食事など)をおごる"
+},
+{
+"no": 822,
+"word": "be fed up with ～",
+"mean": "～にうんざりしている"
+},
+{
+"no": 823,
+"word": "come to think of it",
+"mean": "考えてみると、そういえば"
+},
+{
+"no": 824,
+"word": "think much/highly of ～",
+"mean": "～を高く評価する、～を尊敬[尊重]する"
+},
+{
+"no": 825,
+"word": "Legend has it (that) …",
+"mean": "伝説によると…ということだ"
+},
+{
+"no": 826,
+"word": "Here we are.",
+"mean": "さあ着いた"
+},
+{
+"no": 827,
+"word": "hit it off (with～)",
+"mean": "（人と）仲良くなる[意気投合する]"
+},
+{
+"no": 828,
+"word": "watch one's step",
+"mean": "足元[言動]に注意する"
+},
+{
+"no": 829,
+"word": "give one's regard to ～",
+"mean": "（伝言・手紙などで）～によろしくと伝える"
+},
+{
+"no": 830,
+"word": "You're kidding (me).",
+"mean": "冗談でしょうまさか"
+},
+{
+"no": 831,
+"word": "be susceptible to ～",
+"mean": "～の影響を受けやすい、～に感染しやすい"
+},
+{
+"no": 832,
+"word": "be at odds (with ～)",
+"mean": "（～と）食い違っている、（～と）反目し合っている"
+},
+{
+"no": 833,
+"word": "be committed to ～",
+"mean": "～に献身する、～と固く約束する[誓う]"
+},
+{
+"no": 834,
+"word": "be here to stay",
+"mean": "定着している"
+},
+{
+"no": 835,
+"word": "be liable to do/to ～",
+"mean": "…しがちである/～にかかりやすい"
+},
+{
+"no": 836,
+"word": "be intent on/upon ～",
+"mean": "～に懸命[熱心]である"
+},
+{
+"no": 837,
+"word": "be no match for ～",
+"mean": "とても～にはかなわない"
+},
+{
+"no": 838,
+"word": "be vulnerable to ～",
+"mean": "（病気・誘惑など）に弱い、（非難・攻撃など）を受けやすい"
+},
+{
+"no": 839,
+"word": "be eligible for ～",
+"mean": "～の資格がある"
+},
+{
+"no": 840,
+"word": "be worth doing",
+"mean": "…する価値がある"
+},
+{
+"no": 841,
+"word": "be out to do",
+"mean": "…しようと狙っている"
+},
+{
+"no": 842,
+"word": "be all ears",
+"mean": "一心を耳に傾けている"
+},
+{
+"no": 843,
+"word": "be beside oneself (with ～)",
+"mean": "（～で）我を忘れる、（～に）夢中である"
+},
+{
+"no": 844,
+"word": "be cut out to be ～",
+"mean": "～に向いている[適している]"
+},
+{
+"no": 845,
+"word": "be (all) the rage",
+"mean": "（大）流行している"
+},
+{
+"no": 846,
+"word": "account for ～",
+"mean": "①～の説明となる、～の理由を説明する ②（割合など）を占める"
+},
+{
+"no": 847,
+"word": "allow for ～",
+"mean": "～を可能にする、～を考慮に入れる"
+},
+{
+"no": 848,
+"word": "settle for ～",
+"mean": "（不十分ながら）～で我慢する"
+},
+{
+"no": 849,
+"word": "yearn for ～",
+"mean": "～を恋しがる、～にあこがれる"
+},
+{
+"no": 850,
+"word": "count for ～",
+"mean": "～の価値[重要性]を持つ"
+},
+{
+"no": 851,
+"word": "cope with ～",
+"mean": "～をうまく処理する、～に対処する"
+},
+{
+"no": 852,
+"word": "coincide with ～",
+"mean": "～と一致する、～と同時に起こる"
+},
+{
+"no": 853,
+"word": "comply with ～",
+"mean": "（規則・命令など）に従う[応じる]"
+},
+{
+"no": 854,
+"word": "dispense with ～",
+"mean": "～なしですます"
+},
+{
+"no": 855,
+"word": "attend to ～",
+"mean": "～を処理する、～に注意を払う、～の世話をする"
+},
+{
+"no": 856,
+"word": "aspire to ～",
+"mean": "～を熱望する"
+},
+{
+"no": 857,
+"word": "submit to ～",
+"mean": "～に屈する[服従する]"
+},
+{
+"no": 858,
+"word": "consent to ～",
+"mean": "～に同意する"
+},
+{
+"no": 859,
+"word": "deal in ～",
+"mean": "（商品）を取り扱う、（仕事など）に従事する"
+},
+{
+"no": 860,
+"word": "persist in ～",
+"mean": "～に固執する、～をやり直す"
+},
+{
+"no": 861,
+"word": "indulge in ～",
+"mean": "思う存分～をする、（快楽など）にふける"
+},
+{
+"no": 862,
+"word": "embark on/upon ～",
+"mean": "（事業・計画など）に乗り出す、～を始める"
+},
+{
+"no": 863,
+"word": "dwell on/upon ～",
+"mean": "①～を詳しく述べる[書く] ②～をくよくよ[つくづく]考える、～に拘る"
+},
+{
+"no": 864,
+"word": "tell on/upon ～",
+"mean": "～に（悪く）影響する、～にこたえる"
+},
+{
+"no": 865,
+"word": "refrain from ～",
+"mean": "～を慎む"
+},
+{
+"no": 866,
+"word": "discriminate against ～",
+"mean": "～を差別する"
+},
+{
+"no": 867,
+"word": "abide by ～",
+"mean": "（法など）に従う、（約束など）を守る"
+},
+{
+"no": 868,
+"word": "work out ～",
+"mean": "①（問題などが）うまくいく、～を計画する、～を解決する、～の答を出す ②運動する"
+},
+{
+"no": 869,
+"word": "rule out ～",
+"mean": "（可能性など）を排除する、～を認めない"
+},
+{
+"no": 870,
+"word": "single out ～",
+"mean": "～を（１つだけ）選び出す"
+},
+{
+"no": 871,
+"word": "pass out",
+"mean": "気絶する、酔いつぶれる"
+},
+{
+"no": 872,
+"word": "miss out on ～",
+"mean": "（好機など）を逃す、～を取り逃す"
+},
+{
+"no": 873,
+"word": "wind up ～",
+"mean": "～を終わりにする、終わる"
+},
+{
+"no": 874,
+"word": "pull up ～",
+"mean": "①～を引き抜く[引き上げる]、（いすなど）を引き寄せる②（車などが）止まる、（車など）を止める"
+},
+{
+"no": 875,
+"word": "throw up ～",
+"mean": "①～をさっと上げる、～を投げ上げる ②（食べた物を）吐く、～を吐く"
+},
+{
+"no": 876,
+"word": "round up ～",
+"mean": "～を寄せ集める、～を検挙[逮捕]する"
+},
+{
+"no": 877,
+"word": "catch on",
+"mean": "①（ファッション・考えなどが）人気が出る[流行する] ②理解する、気づく"
+},
+{
+"no": 878,
+"word": "get away with ～",
+"mean": "①（罰を受けずに）～をうまくやる ②～を持ち逃げする"
+},
+{
+"no": 879,
+"word": "shy away (from ～)",
+"mean": "（～を）避ける[敬遠する]"
+},
+{
+"no": 880,
+"word": "hang around/about/round",
+"mean": "ぶらつく、付き合う"
+},
+{
+"no": 881,
+"word": "get down to ～",
+"mean": "（仕事・問題など）に本気で取り掛かる"
+},
+{
+"no": 882,
+"word": "let down ～",
+"mean": "～を失望させる"
+},
+{
+"no": 883,
+"word": "pull off ～",
+"mean": "[口語で]（困難なこと）をやってのける"
+},
+{
+"no": 884,
+"word": "follow through (on/with ～)",
+"mean": "（～を）やり遂げる"
+},
+{
+"no": 885,
+"word": "find oneself ～",
+"mean": "（気がつくと）～にいる[～である]"
+},
+{
+"no": 886,
+"word": "make do (with～)",
+"mean": "（代用品などで）間に合わせる"
+},
+{
+"no": 887,
+"word": "make good ～",
+"mean": "①成功する②（約束など）を果たす、（損害など）を償う"
+},
+{
+"no": 888,
+"word": "make (both) ends meet",
+"mean": "収入内でやりくりする"
+},
+{
+"no": 889,
+"word": "make believe (that …)",
+"mean": "（…という）ふりをする"
+},
+{
+"no": 890,
+"word": "take ～ for granted",
+"mean": "～を当然のことと思う"
+},
+{
+"no": 891,
+"word": "take ～ into account",
+"mean": "～を考慮に入れる"
+},
+{
+"no": 892,
+"word": "take hold of ^",
+"mean": "～をつかむ、～を捕まえる"
+},
+{
+"no": 893,
+"word": "take notice (of～)",
+"mean": "（～に）注目する、（～に）気づく"
+},
+{
+"no": 894,
+"word": "take effect",
+"mean": "①（法律などが）施行[実施]される ②（薬などが）効く"
+},
+{
+"no": 895,
+"word": "take pains",
+"mean": "骨を折る、努力する"
+},
+{
+"no": 896,
+"word": "keep track of ～",
+"mean": "（記録するなどして）～を把握する、～の跡をたどる"
+},
+{
+"no": 897,
+"word": "keep ～ company",
+"mean": "（人）と一緒にいる、（人）の相手をする、（話など）に付き合う"
+},
+{
+"no": 898,
+"word": "keep abreast of/with ～",
+"mean": "（時勢など）に遅れずついて行く"
+},
+{
+"no": 899,
+"word": "let go of ～",
+"mean": "～を手放す"
+},
+{
+"no": 900,
+"word": "live up to ～",
+"mean": "（期待など）に添う[恥じない行動をする]、（義務など）を果たす"
+}
+]

@@ -1,0 +1,502 @@
+[
+{
+"no": 701,
+"word": "provided (that) …",
+"mean": "もし…ならば"
+},
+{
+"no": 702,
+"word": "every/each time …",
+"mean": "…するたびに"
+},
+{
+"no": 703,
+"word": "the moment/minute …",
+"mean": "…するとすぐに"
+},
+{
+"no": 704,
+"word": "when it comes to ～",
+"mean": "～のこととなると、～をする段になると"
+},
+{
+"no": 705,
+"word": "as it is",
+"mean": "①（通例、仮定法的な表現の直後で）実際のところは ②（事物が）あるがままの（に）"
+},
+{
+"no": 706,
+"word": "as/so far as ～ be concerned",
+"mean": "～に関する限り"
+},
+{
+"no": 707,
+"word": "as follows",
+"mean": "次のとおり"
+},
+{
+"no": 708,
+"word": "as is often the case (with～)",
+"mean": "（～に関して）よくあることだが"
+},
+{
+"no": 709,
+"word": "as ～ go",
+"mean": "一般の～と比べると、～としては"
+},
+{
+"no": 710,
+"word": "if only …",
+"mean": "①…でありさえすれば ②（現在・未来の願望を表して）…でさえあればなあ"
+},
+{
+"no": 711,
+"word": "if it were not for ～",
+"mean": "もし～がなければ"
+},
+{
+"no": 712,
+"word": "(in) the way …",
+"mean": "…から判断すると、…のように、…のやり方で"
+},
+{
+"no": 713,
+"word": "～ to death",
+"mean": "死ぬまで～、ひどく～"
+},
+{
+"no": 714,
+"word": "with ease",
+"mean": "容易に"
+},
+{
+"no": 715,
+"word": "believe it or not",
+"mean": "まさかと思うような話だが"
+},
+{
+"no": 716,
+"word": "not all that ～",
+"mean": "それほど～ではない"
+},
+{
+"no": 717,
+"word": "the 比較級 ～, the 比較級 …",
+"mean": "～であればあるほど、いっそう…だ"
+},
+{
+"no": 718,
+"word": "(Just) As ～, so …",
+"mean": "ちょうど～であるように…だ"
+},
+{
+"no": 719,
+"word": "(It is) No wonder (that) …",
+"mean": "…なのは当然だ"
+},
+{
+"no": 720,
+"word": "It happens that …",
+"mean": "たまたま…だ、折良く[運悪く]…だ"
+},
+{
+"no": 721,
+"word": "(The) Chances are (that) …",
+"mean": "ひょっとしたら[たぶん]…だろう"
+},
+{
+"no": 722,
+"word": "There is no doing",
+"mean": "…することはできない"
+},
+{
+"no": 723,
+"word": "not so much A as B",
+"mean": "AというよりむしろB"
+},
+{
+"no": 724,
+"word": "hardly ～ when/before …",
+"mean": "～するかしないかのうちに…する"
+},
+{
+"no": 725,
+"word": "never do without ～",
+"mean": "…すれば必ず～する"
+},
+{
+"no": 726,
+"word": "It goes without saying that …",
+"mean": "…なのは言うまでもない"
+},
+{
+"no": 727,
+"word": "(It is) True ～, but …",
+"mean": "確かに～だが、…だ"
+},
+{
+"no": 728,
+"word": "It is not long before …",
+"mean": "…するのに長くはかからない、間もなく…する"
+},
+{
+"no": 729,
+"word": "It is (high) time (that) …",
+"mean": "（とっくに）…してよいころだ"
+},
+{
+"no": 730,
+"word": "no sooner ～ than …",
+"mean": "～するやいなや…する"
+},
+{
+"no": 731,
+"word": "It is no use doing",
+"mean": "…しても無駄である"
+},
+{
+"no": 732,
+"word": "It is not until ～ that …",
+"mean": "～になって初めて…する"
+},
+{
+"no": 733,
+"word": "A is to B what C is to D",
+"mean": "AのBに対する関係はCのDに対する関係に等しい"
+},
+{
+"no": 734,
+"word": "not so much as do",
+"mean": "…さえしない"
+},
+{
+"no": 735,
+"word": "Nothing is more A than B.",
+"mean": "BほどAなものはない"
+},
+{
+"no": 736,
+"word": "the former ～, the latter …",
+"mean": "前者は～、後者は…"
+},
+{
+"no": 737,
+"word": "A is one thing, and B is another",
+"mean": "AとBとは別の物である"
+},
+{
+"no": 738,
+"word": "All one has to do is (to) do",
+"mean": "（人は）はただ…すればよい"
+},
+{
+"no": 739,
+"word": "Suffice (it) to say that …",
+"mean": "…と言えば十分である"
+},
+{
+"no": 740,
+"word": "be to do",
+"mean": "①（予定・運命）…することになっている ②（義務）…すべきである ③（意図・目的）…するつもりである ④（可能）…できる"
+},
+{
+"no": 741,
+"word": "be forced to do",
+"mean": "やむなく…する"
+},
+{
+"no": 742,
+"word": "be supposed to do",
+"mean": "…することになっている、（世間で）…と考えられている"
+},
+{
+"no": 743,
+"word": "be to blame (for ～)",
+"mean": "（～に対して）責めを負うべきである[責任がある]"
+},
+{
+"no": 744,
+"word": "be entitled to ～",
+"mean": "～の資格がある"
+},
+{
+"no": 745,
+"word": "tend to do",
+"mean": "…する傾向がある、…しがちである"
+},
+{
+"no": 746,
+"word": "happen to do",
+"mean": "偶然…する"
+},
+{
+"no": 747,
+"word": "manage to do",
+"mean": "なんとか…する[やり遂げる]"
+},
+{
+"no": 748,
+"word": "can afford to do",
+"mean": "（経済的・時間的に）…する余裕がある"
+},
+{
+"no": 749,
+"word": "bother to do",
+"mean": "わざわざ…する"
+},
+{
+"no": 750,
+"word": "come to an end/a close",
+"mean": "終わる"
+},
+{
+"no": 751,
+"word": "go so far as to do",
+"mean": "…しさえする"
+},
+{
+"no": 752,
+"word": "have no (other) choice but to do",
+"mean": "…するよりほかに仕方がない"
+},
+{
+"no": 753,
+"word": "spend ～ (in) doing",
+"mean": "…して（時間・期間）を過ごす"
+},
+{
+"no": 754,
+"word": "make a point of doing",
+"mean": "必ず…するよう努力する、…することを重視する"
+},
+{
+"no": 755,
+"word": "remain to be seen",
+"mean": "（結果などは）未定である"
+},
+{
+"no": 756,
+"word": "bring oneself to do",
+"mean": "…する気持ちになる"
+},
+{
+"no": 757,
+"word": "take the trouble to do",
+"mean": "わざわざ[労を惜しまず]…する"
+},
+{
+"no": 758,
+"word": "leave nothing to be desired",
+"mean": "申し分ない"
+},
+{
+"no": 759,
+"word": "in order/so as to do",
+"mean": "…するために"
+},
+{
+"no": 760,
+"word": "in that …",
+"mean": "…の点で、…のゆえに"
+},
+{
+"no": 761,
+"word": "as/so long as …",
+"mean": "（条件・時間的限度）…である限り"
+},
+{
+"no": 762,
+"word": "see (to it) that …",
+"mean": "…するように取り計らう[気をつける]"
+},
+{
+"no": 763,
+"word": "so that ～ can do",
+"mean": "～が…できるように"
+},
+{
+"no": 764,
+"word": "by the time …",
+"mean": "…までに（は）"
+},
+{
+"no": 765,
+"word": "～, so (that) …",
+"mean": "～だ、その結果…だ"
+},
+{
+"no": 766,
+"word": "now that …",
+"mean": "…である以上、今はもう…なので"
+},
+{
+"no": 767,
+"word": "in case …",
+"mean": "①[主に米]もし…ならば ②[主に英]…するといけないから、…に備えて"
+},
+{
+"no": 768,
+"word": "given (that) …",
+"mean": "…を考慮すれば、…なので"
+},
+{
+"no": 769,
+"word": "even as …",
+"mean": "まさに…するときに"
+},
+{
+"no": 770,
+"word": "if any",
+"mean": "もしあるとしても、もしあれば"
+},
+{
+"no": 771,
+"word": "on (the) condition (that) …",
+"mean": "…という条件で、…ならば"
+},
+{
+"no": 772,
+"word": "lest ～ (should) …",
+"mean": "～が…しないように、～が…するといけないから"
+},
+{
+"no": 773,
+"word": "what with A and B",
+"mean": "AやらBやらで"
+},
+{
+"no": 774,
+"word": "A, and B at that",
+"mean": "Aだ、その上Bでもある"
+},
+{
+"no": 775,
+"word": "inasmuch/in as much as …",
+"mean": "…だから"
+},
+{
+"no": 776,
+"word": "just about",
+"mean": "ほぼ、かろうじて"
+},
+{
+"no": 777,
+"word": "go ahead",
+"mean": "先に行く、（ためらわず）進む"
+},
+{
+"no": 778,
+"word": "check out ～",
+"mean": "①（魅力的なので）～を見てみる、～を調査[点検]する ②（図書館などから）～借り出す"
+},
+{
+"no": 779,
+"word": "hold on",
+"mean": "①持ちこたえる、頑張る ②待つ、電話を切らずにいる ③しっかりつかむ"
+},
+{
+"no": 780,
+"word": "hang up ～",
+"mean": "（電話を）切る、（衣服など）を掛ける、～を中断する"
+},
+{
+"no": 781,
+"word": "give ～ a try",
+"mean": "～を試してみる"
+},
+{
+"no": 782,
+"word": "give ～ a hand",
+"mean": "～に手を貸す"
+},
+{
+"no": 783,
+"word": "call back ～",
+"mean": "～に折り返し電話する、～に電話をかけ直す、～を呼び戻す"
+},
+{
+"no": 784,
+"word": "from scratch",
+"mean": "最初から"
+},
+{
+"no": 785,
+"word": "see ～ off",
+"mean": "～を見送る"
+},
+{
+"no": 786,
+"word": "hold one's breath",
+"mean": "息を止める、（期待して）息をひそめて待つ"
+},
+{
+"no": 787,
+"word": "at/behind the wheel",
+"mean": "（車・船などを）運転して"
+},
+{
+"no": 788,
+"word": "having said that",
+"mean": "そうは言ったものの"
+},
+{
+"no": 789,
+"word": "on the dot",
+"mean": "（口語で）時間ちょうどに、きっかりに"
+},
+{
+"no": 790,
+"word": "ask ～ a favor",
+"mean": "～にお願いをする[頼む]"
+},
+{
+"no": 791,
+"word": "drive at ～",
+"mean": "（whatを目的語に）～のつもりである"
+},
+{
+"no": 792,
+"word": "lose (one's) face",
+"mean": "面目を失う"
+},
+{
+"no": 793,
+"word": "before one knows it",
+"mean": "あっという間に"
+},
+{
+"no": 794,
+"word": "stick around/about",
+"mean": "（口語で）（帰らずに）そこらで待つ"
+},
+{
+"no": 795,
+"word": "call it a day",
+"mean": "その日の仕事を終える"
+},
+{
+"no": 796,
+"word": "have (a) good command of ～",
+"mean": "（外国語など）を自由に使いこなす力がある"
+},
+{
+"no": 797,
+"word": "keep one's fingers crossed",
+"mean": "（幸運[成功]を）祈る"
+},
+{
+"no": 798,
+"word": "pay a visit (to ～）",
+"mean": "（～を）訪問する"
+},
+{
+"no": 799,
+"word": "serve ～ right",
+"mean": "～にとって当然の報いである"
+},
+{
+"no": 800,
+"word": "go to the polls",
+"mean": "投票に行く"
+}
+]
