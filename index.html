@@ -473,7 +473,8 @@ const BOOKS = {
     title: 'TARGET 1900 学習ノート',
     sub: '全 1900 語 ・ フラッシュカード / 4択クイズ / スペルテスト / リスニング',
     label: 'TARGET 1900',
-    folder: 'words',
+    folder: 'words-1900',
+    filePrefix: 'target1900',
     sectionCount: 19,
     keyPrefix: 'target1900',
     hasExamples: true
@@ -483,6 +484,7 @@ const BOOKS = {
     sub: '全 1000 語 ・ フラッシュカード / 4択クイズ / スペルテスト / リスニング',
     label: 'TARGET 1000',
     folder: 'words-1000',
+    filePrefix: 'target1000',
     sectionCount: 10,
     keyPrefix: 'target1000',
     hasExamples: false
@@ -506,8 +508,9 @@ document.getElementById('book-toggle').addEventListener('click', ()=>{
 let WORDS = [];
 const WORD_SECTION_COUNT = bookCfg.sectionCount;
 const WORD_FOLDER = bookCfg.folder;
+const WORD_FILE_PREFIX = bookCfg.filePrefix;
 try {
-  const files = Array.from({length: WORD_SECTION_COUNT}, (_, i) => `${WORD_FOLDER}/section-${String(i+1).padStart(2,'0')}.json`);
+  const files = Array.from({length: WORD_SECTION_COUNT}, (_, i) => `${WORD_FOLDER}/${WORD_FILE_PREFIX}-section-${String(i+1).padStart(2,'0')}.json`);
   const chunks = await Promise.all(files.map(url => fetch(url).then(r => {
     if(!r.ok) throw new Error(`${url} の読み込みに失敗しました (${r.status})`);
     return r.json();
