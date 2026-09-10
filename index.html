@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TARGET 1900 学習ノート</title>
+<title id="page-title">TARGET 1900 学習ノート</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Spectral:ital,wght@0,400;0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -410,14 +410,15 @@ table.wordtable tr:hover td{ background:var(--surface-2); }
   <div class="brand">
     <span class="mark">Lexicon</span>
     <div>
-      <h1>TARGET 1900 学習ノート</h1>
-      <div class="sub">全 1900 語 ・ フラッシュカード / 4択クイズ / スペルテスト / リスニング</div>
+      <h1 id="brand-title">TARGET 1900 学習ノート</h1>
+      <div class="sub" id="brand-sub">全 1900 語 ・ フラッシュカード / 4択クイズ / スペルテスト / リスニング</div>
     </div>
   </div>
   <div class="headstats">
     <div><span class="lbl">未着手</span><b id="stat-new">0</b></div>
     <div class="hs-review"><span class="lbl">復習中</span><b id="stat-review">0</b></div>
     <div class="hs-mastered"><span class="lbl">習得済み</span><b id="stat-mastered">0</b></div>
+    <button class="theme-toggle" id="book-toggle" title="単語帳を切り替え">📚 <span id="book-label">TARGET 1900</span></button>
     <button class="theme-toggle" id="theme-toggle">🌙 <span id="theme-label">ダーク</span></button>
   </div>
 </header>
@@ -466,10 +467,47 @@ table.wordtable tr:hover td{ background:var(--surface-2); }
 </div>
 
 <script type="module">
+/* ---------- book (単語帳) selection ---------- */
+const BOOKS = {
+  '1900': {
+    title: 'TARGET 1900 学習ノート',
+    sub: '全 1900 語 ・ フラッシュカード / 4択クイズ / スペルテスト / リスニング',
+    label: 'TARGET 1900',
+    folder: 'words',
+    sectionCount: 19,
+    keyPrefix: 'target1900',
+    hasExamples: true
+  },
+  '1000': {
+    title: 'TARGET 1000 学習ノート',
+    sub: '全 1000 語 ・ フラッシュカード / 4択クイズ / スペルテスト / リスニング',
+    label: 'TARGET 1000',
+    folder: 'words-1000',
+    sectionCount: 10,
+    keyPrefix: 'target1000',
+    hasExamples: false
+  }
+};
+const LS_BOOK = 'lexicon_book';
+const BOOK = (localStorage.getItem(LS_BOOK) === '1000') ? '1000' : '1900';
+const bookCfg = BOOKS[BOOK];
+
+document.getElementById('page-title').textContent = bookCfg.title;
+document.getElementById('brand-title').textContent = bookCfg.title;
+document.getElementById('brand-sub').textContent = bookCfg.sub;
+document.getElementById('book-label').textContent = bookCfg.label;
+
+document.getElementById('book-toggle').addEventListener('click', ()=>{
+  const next = BOOK === '1900' ? '1000' : '1900';
+  localStorage.setItem(LS_BOOK, next);
+  location.reload();
+});
+
 let WORDS = [];
-const WORD_SECTION_COUNT = 19;
+const WORD_SECTION_COUNT = bookCfg.sectionCount;
+const WORD_FOLDER = bookCfg.folder;
 try {
-  const files = Array.from({length: WORD_SECTION_COUNT}, (_, i) => `words/section-${String(i+1).padStart(2,'0')}.json`);
+  const files = Array.from({length: WORD_SECTION_COUNT}, (_, i) => `${WORD_FOLDER}/section-${String(i+1).padStart(2,'0')}.json`);
   const chunks = await Promise.all(files.map(url => fetch(url).then(r => {
     if(!r.ok) throw new Error(`${url} の読み込みに失敗しました (${r.status})`);
     return r.json();
@@ -477,16 +515,16 @@ try {
   WORDS = chunks.flat();
 } catch (e) {
   console.error('単語データの読み込みに失敗しました:', e);
-  document.body.innerHTML = '<div style="padding:40px;text-align:center;font-family:sans-serif;line-height:1.8;">単語データ（<code>words/</code>フォルダ内のJSONファイル）の読み込みに失敗しました。<br>index.html と同じ場所に <code>words</code> フォルダを置き、ローカルサーバー経由（例: <code>python3 -m http.server</code>）で開いてください。<br>file:// で直接開くと読み込めない場合があります。</div>';
+  document.body.innerHTML = `<div style="padding:40px;text-align:center;font-family:sans-serif;line-height:1.8;">単語データ（<code>${WORD_FOLDER}/</code>フォルダ内のJSONファイル）の読み込みに失敗しました。<br>index.html と同じ場所に <code>${WORD_FOLDER}</code> フォルダを置き、ローカルサーバー経由（例: <code>python3 -m http.server</code>）で開いてください。<br>file:// で直接開くと読み込めない場合があります。</div>`;
   throw e;
 }
 
 /* ---------- storage ---------- */
-const LS_PROGRESS = 'target1900_progress_v3';
-const LS_HISTORY = 'target1900_history_v2';
+const LS_PROGRESS = `${bookCfg.keyPrefix}_progress_v3`;
+const LS_HISTORY = `${bookCfg.keyPrefix}_history_v2`;
 const LS_THEME = 'target1900_theme';
 const LS_SETTINGS = 'target1900_settings_v1';
-const LS_META = 'target1900_meta_v1';
+const LS_META = `${bookCfg.keyPrefix}_meta_v1`;
 const LS_PHONETIC = 'target1900_phonetic_v1';
 
 function freshSRS(){
@@ -935,7 +973,11 @@ function hideRangeMenu(){
   closeRangePanel();
 }
 
+function hasExample(w){
+  return !!(w && (w.ex_en || w.ex_ja));
+}
 function exampleBoxHTML(w){
+  if(!hasExample(w)) return '<div class="example-box" id="example-box"></div>';
   return `<div class="example-box" id="example-box"><div class="en">${w.ex_en}</div><div class="ja">${w.ex_ja}</div></div>`;
 }
 
@@ -985,13 +1027,13 @@ function renderFlashBody(){
       </div>` : ''}
       <div class="card-controls">
         <button class="btn ng" id="btn-ng">✕ もう一度 <span class="kbd">2</span></button>
-        <button class="btn ghost" id="btn-ex">📖 例文 <span class="kbd">E</span></button>
+        ${hasExample(w) ? `<button class="btn ghost" id="btn-ex">📖 例文 <span class="kbd">E</span></button>` : ''}
         <button class="btn ghost" id="btn-shuffle">🔀 シャッフル</button>
         <button class="btn ok" id="btn-ok">◯ わかる <span class="kbd">1</span></button>
       </div>
       <div class="navrow">
         <button id="nav-prev">←</button>
-        <span>矢印キーで前後に移動 ・ <span class="kbd">Space</span> でめくる ・ <span class="kbd">E</span> で例文</span>
+        <span>矢印キーで前後に移動 ・ <span class="kbd">Space</span> でめくる${hasExample(w) ? ` ・ <span class="kbd">E</span> で例文` : ''}</span>
         <button id="nav-next">→</button>
       </div>
     </div>`;
@@ -1018,7 +1060,7 @@ function renderFlashBody(){
     paintFace();
     document.querySelector('.hint').textContent = state.flipped ? 'クリックで単語に戻る' : 'クリック / スペースキーで意味を表示';
   });
-  document.getElementById('btn-ex').addEventListener('click', ()=>{
+  document.getElementById('btn-ex')?.addEventListener('click', ()=>{
     state.showEx = !state.showEx;
     document.getElementById('example-box').classList.toggle('show', state.showEx);
   });
@@ -1325,7 +1367,7 @@ function renderListenQuestion(){
       applyAnswer(no, ok);
       document.getElementById('streak-n').textContent = state.streak;
       document.getElementById('listen-ex').innerHTML =
-        `<div class="example-box show"><div style="font-family:'Spectral',serif; font-weight:700; font-size:18px;">${w.word}</div><div class="en">${w.ex_en}</div><div class="ja">${w.ex_ja}</div></div>`;
+        `<div class="example-box show"><div style="font-family:'Spectral',serif; font-weight:700; font-size:18px;">${w.word}</div>${hasExample(w) ? `<div class="en">${w.ex_en}</div><div class="ja">${w.ex_ja}</div>` : ''}</div>`;
       updateStats();
       document.getElementById('listen-next').classList.remove('hidden');
       document.getElementById('listen-next').addEventListener('click', ()=>{
@@ -1440,7 +1482,7 @@ function renderList(){
         return `<tr class="wt-row" data-no="${w.no}"><td class="wt-no">${w.no}</td><td class="wt-word" data-no="${w.no}">${w.word}<span class="wt-phon" id="wt-phon-${w.no}"></span></td><td>${w.mean}</td>
           <td><span class="badge ${st}">${label}</span></td>
           <td><button class="jumpbtn" data-no="${w.no}">カードで見る</button></td></tr>
-          <tr class="ex-row hidden" data-for="${w.no}"><td></td><td colspan="4"><div class="en">${w.ex_en}</div><div>${w.ex_ja}</div></td></tr>`;
+          ${hasExample(w) ? `<tr class="ex-row hidden" data-for="${w.no}"><td></td><td colspan="4"><div class="en">${w.ex_en}</div><div>${w.ex_ja}</div></td></tr>` : ''}`;
       }).join('')}</tbody></table>`;
     wrap.querySelectorAll('.jumpbtn').forEach(b=>{
       b.addEventListener('click', ()=>{
@@ -1825,7 +1867,7 @@ document.getElementById('btn-export').addEventListener('click', ()=>{
   const blob = new Blob([JSON.stringify(data)], {type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'target1900_progress.json';
+  a.download = `${bookCfg.keyPrefix}_progress.json`;
   a.click();
 });
 document.getElementById('btn-import').addEventListener('click', ()=>{
