@@ -236,6 +236,8 @@ let state = {
   quizDir:'en2ja',
   quizStarted:false,
   spellStarted:false,
+  quizCount:'all',
+  spellCount:'all',
   streak:0,
   quizLocked:false,
   listenRate:1.0,
@@ -641,6 +643,23 @@ function showStamp(kind){
   el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
 }
 
+/* ---------- shared: question-count selector for quiz/spell start screens ---------- */
+const COUNT_STEPS = [10,20,30,50,100];
+function countOptionsFor(poolLen){
+  const opts = COUNT_STEPS.filter(n => n < poolLen);
+  opts.push('all');
+  return opts;
+}
+function countRowHTML(poolLen, current, idPrefix){
+  const opts = countOptionsFor(poolLen);
+  if(opts.length <= 1) return '';
+  return `
+    <div class="count-label">出題数</div>
+    <div class="count-row">${opts.map(o=>
+      `<button class="chip ${current===o?'active':''}" data-count="${o}" id="${idPrefix}-count-${o}">${o==='all' ? `全問 (${poolLen})` : `${o}問`}</button>`
+    ).join('')}</div>`;
+}
+
 /* ---------- QUIZ MODE ---------- */
 function renderQuizSetup(){
   rebuildOrder(false);
@@ -661,18 +680,30 @@ function renderQuizStart(){
   const body = document.getElementById('quiz-body');
   const pool = state.order;
   const enough = pool.length >= 4;
+  const opts = countOptionsFor(pool.length);
+  if(state.quizCount !== 'all' && !opts.includes(state.quizCount)) state.quizCount = 'all';
+  const n = state.quizCount==='all' ? pool.length : Math.min(state.quizCount, pool.length);
   body.innerHTML = `
     <div class="start-card">
       <div class="start-icon">✅</div>
       <h2>4択クイズ</h2>
-      <div class="start-meta">${rangeLabel()} ・ 全 ${pool.length} 問</div>
+      <div class="start-meta">${rangeLabel()} ・ 範囲内 ${pool.length} 語</div>
+      ${countRowHTML(pool.length, state.quizCount, 'quiz')}
       <div class="start-tip">💡 <button class="link-btn" id="quiz-start-range">出題範囲を変更する</button></div>
       ${enough
-        ? `<button class="btn primary start-btn" id="quiz-start-btn">▶ スタート</button>`
+        ? `<button class="btn primary start-btn" id="quiz-start-btn">▶ スタート（${n}問）</button>`
         : `<div class="empty start-warn">4択クイズを出題するには、この範囲に最低4語必要です。範囲を広げてください。</div>`}
     </div>`;
   document.getElementById('quiz-start-range').addEventListener('click', openRangePopover);
+  opts.forEach(o=>{
+    document.getElementById(`quiz-count-${o}`)?.addEventListener('click', ()=>{
+      state.quizCount = o;
+      renderQuizStart();
+    });
+  });
   document.getElementById('quiz-start-btn')?.addEventListener('click', ()=>{
+    const take = state.quizCount==='all' ? state.order.length : Math.min(state.quizCount, state.order.length);
+    state.order = state.order.slice(0, take);
     state.quizStarted = true;
     state.pos = 0; state.streak = 0;
     renderQuizQuestion();
@@ -756,18 +787,30 @@ function renderSpellStart(){
   const body = document.getElementById('spell-body');
   const pool = state.order;
   const enough = pool.length >= 1;
+  const opts = countOptionsFor(pool.length);
+  if(state.spellCount !== 'all' && !opts.includes(state.spellCount)) state.spellCount = 'all';
+  const n = state.spellCount==='all' ? pool.length : Math.min(state.spellCount, pool.length);
   body.innerHTML = `
     <div class="start-card">
       <div class="start-icon">✏️</div>
       <h2>スペルテスト</h2>
-      <div class="start-meta">${rangeLabel()} ・ 全 ${pool.length} 問</div>
+      <div class="start-meta">${rangeLabel()} ・ 範囲内 ${pool.length} 語</div>
+      ${countRowHTML(pool.length, state.spellCount, 'spell')}
       <div class="start-tip">💡 <button class="link-btn" id="spell-start-range">出題範囲を変更する</button></div>
       ${enough
-        ? `<button class="btn primary start-btn" id="spell-start-btn">▶ スタート</button>`
+        ? `<button class="btn primary start-btn" id="spell-start-btn">▶ スタート（${n}問）</button>`
         : `<div class="empty start-warn">この範囲には単語がありません。範囲を広げてください。</div>`}
     </div>`;
   document.getElementById('spell-start-range').addEventListener('click', openRangePopover);
+  opts.forEach(o=>{
+    document.getElementById(`spell-count-${o}`)?.addEventListener('click', ()=>{
+      state.spellCount = o;
+      renderSpellStart();
+    });
+  });
   document.getElementById('spell-start-btn')?.addEventListener('click', ()=>{
+    const take = state.spellCount==='all' ? state.order.length : Math.min(state.spellCount, state.order.length);
+    state.order = state.order.slice(0, take);
     state.spellStarted = true;
     state.pos = 0; state.streak = 0;
     renderSpellQuestion();
