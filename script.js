@@ -301,15 +301,49 @@ const TAB_MODES = ['flash','quiz','spell','listen','list','dash'];
 function syncTabs(){
   document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.mode===state.mode));
 }
+
+/* liquid-glass tab indicator: slides/stretches to whichever tab is
+   active. animate=false snaps instantly (first paint, resize, font
+   swap); animate=true (default) uses the CSS spring transition. */
+function positionTabGlow(animate=true){
+  const glow = document.getElementById('tab-glow');
+  const activeTab = document.querySelector('.tab.active');
+  if(!glow) return;
+  if(!activeTab){ glow.style.opacity = '0'; return; }
+  const apply = ()=>{
+    glow.style.left = activeTab.offsetLeft + 'px';
+    glow.style.width = activeTab.offsetWidth + 'px';
+    glow.style.top = activeTab.offsetTop + 'px';
+    glow.style.height = activeTab.offsetHeight + 'px';
+    glow.style.opacity = '1';
+  };
+  if(!animate){
+    glow.style.transition = 'none';
+    apply();
+    void glow.offsetWidth; // flush so the transition:none actually applies
+    glow.style.transition = '';
+  } else {
+    apply();
+  }
+}
+window.addEventListener('resize', ()=> positionTabGlow(false));
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(()=> positionTabGlow(false));
+}
+
 function goToMode(mode){
   state.mode = mode;
   state.pos = 0; state.streak = 0; state.showEx = false;
   if(mode!=='list' && (state.filter==='due')) { /* keep due filter across study modes */ }
   syncTabs();
+  positionTabGlow(true);
   render();
 }
 document.querySelectorAll('.tab').forEach(btn=>{
-  btn.addEventListener('click', ()=> goToMode(btn.dataset.mode));
+  btn.addEventListener('click', ()=>{
+    goToMode(btn.dataset.mode);
+    btn.scrollIntoView({behavior:'smooth', inline:'nearest', block:'nearest'});
+  });
 });
 
 document.getElementById('due-badge-btn').addEventListener('click', ()=>{
@@ -479,6 +513,7 @@ function renderSettingsPanel(){
     closeSettingsPanel();
     state.mode = 'badges';
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    positionTabGlow(true);
     render();
   });
   document.getElementById('settings-export').addEventListener('click', ()=>{
@@ -1168,6 +1203,7 @@ function renderDashboard(){
   document.getElementById('btn-go-badges')?.addEventListener('click', ()=>{
     state.mode='badges';
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    positionTabGlow(true);
     render();
   });
 
@@ -1279,3 +1315,5 @@ rebuildOrder(false);
 checkBadges();
 syncTabs();
 render();
+positionTabGlow(false);
+requestAnimationFrame(()=> positionTabGlow(false)); // re-snap once layout/webfonts settle
