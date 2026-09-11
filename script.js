@@ -234,6 +234,8 @@ let state = {
   flipped:false,
   showEx:false,
   quizDir:'en2ja',
+  quizStarted:false,
+  spellStarted:false,
   streak:0,
   quizLocked:false,
   listenRate:1.0,
@@ -301,6 +303,7 @@ function syncTabs(){
 function goToMode(mode){
   state.mode = mode;
   state.pos = 0; state.streak = 0; state.showEx = false;
+  state.quizStarted = false; state.spellStarted = false;
   if(mode!=='list' && (state.filter==='due')) { /* keep due filter across study modes */ }
   syncTabs();
   render();
@@ -651,7 +654,29 @@ function renderQuizSetup(){
      <div id="quiz-body"></div>`;
   document.getElementById('dir-en2ja').addEventListener('click',()=>{state.quizDir='en2ja'; renderQuizSetup();});
   document.getElementById('dir-ja2en').addEventListener('click',()=>{state.quizDir='ja2en'; renderQuizSetup();});
-  renderQuizQuestion();
+  if(state.quizStarted) renderQuizQuestion();
+  else renderQuizStart();
+}
+function renderQuizStart(){
+  const body = document.getElementById('quiz-body');
+  const pool = state.order;
+  const enough = pool.length >= 4;
+  body.innerHTML = `
+    <div class="start-card">
+      <div class="start-icon">✅</div>
+      <h2>4択クイズ</h2>
+      <div class="start-meta">${rangeLabel()} ・ 全 ${pool.length} 問</div>
+      <div class="start-tip">💡 <button class="link-btn" id="quiz-start-range">出題範囲を変更する</button></div>
+      ${enough
+        ? `<button class="btn primary start-btn" id="quiz-start-btn">▶ スタート</button>`
+        : `<div class="empty start-warn">4択クイズを出題するには、この範囲に最低4語必要です。範囲を広げてください。</div>`}
+    </div>`;
+  document.getElementById('quiz-start-range').addEventListener('click', openRangePopover);
+  document.getElementById('quiz-start-btn')?.addEventListener('click', ()=>{
+    state.quizStarted = true;
+    state.pos = 0; state.streak = 0;
+    renderQuizQuestion();
+  });
 }
 function renderQuizQuestion(){
   const body = document.getElementById('quiz-body');
@@ -724,7 +749,29 @@ function renderSpellSetup(){
   shuffleOrder();
   renderToolbar();
   main.innerHTML = `<div id="spell-body"></div>`;
-  renderSpellQuestion();
+  if(state.spellStarted) renderSpellQuestion();
+  else renderSpellStart();
+}
+function renderSpellStart(){
+  const body = document.getElementById('spell-body');
+  const pool = state.order;
+  const enough = pool.length >= 1;
+  body.innerHTML = `
+    <div class="start-card">
+      <div class="start-icon">✏️</div>
+      <h2>スペルテスト</h2>
+      <div class="start-meta">${rangeLabel()} ・ 全 ${pool.length} 問</div>
+      <div class="start-tip">💡 <button class="link-btn" id="spell-start-range">出題範囲を変更する</button></div>
+      ${enough
+        ? `<button class="btn primary start-btn" id="spell-start-btn">▶ スタート</button>`
+        : `<div class="empty start-warn">この範囲には単語がありません。範囲を広げてください。</div>`}
+    </div>`;
+  document.getElementById('spell-start-range').addEventListener('click', openRangePopover);
+  document.getElementById('spell-start-btn')?.addEventListener('click', ()=>{
+    state.spellStarted = true;
+    state.pos = 0; state.streak = 0;
+    renderSpellQuestion();
+  });
 }
 function renderSpellQuestion(){
   const body = document.getElementById('spell-body');

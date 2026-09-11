@@ -175,11 +175,14 @@ body::before{
 @media (max-width:680px){ .toolbar{ padding:10px 12px 0; } }
 
 .range-btn{
-  font-weight:700; font-size:12.5px; padding:8px 13px; border-radius:7px;
-  border:1px solid var(--brass); color:var(--brass); background:var(--brass-pale);
-  cursor:pointer; display:inline-flex; align-items:center; gap:6px;
+  font-weight:700; font-size:13.5px; padding:10px 16px; border-radius:8px;
+  border:1.5px solid var(--brass); color:var(--brass); background:var(--brass-pale);
+  cursor:pointer; display:inline-flex; align-items:center; gap:7px;
+  box-shadow:0 1px 0 rgba(0,0,0,.02), 0 6px 14px -8px var(--brass);
+  transition:filter var(--motion), transform var(--motion);
 }
-.range-btn:hover{ filter:brightness(.96); }
+.range-btn:hover{ filter:brightness(.96); transform:translateY(-1px); }
+.range-btn::after{ content:"変更 ›"; font-weight:400; opacity:.75; font-size:11.5px; margin-left:2px; }
 
 .filter-chips{ display:flex; gap:6px; flex-wrap:wrap; }
 .chip{
@@ -237,11 +240,19 @@ hr.tear{ border:none; border-top:1px dashed var(--border); margin:14px 0; }
    floating layers only (popover / settings / toast) */
 main{
   margin:0 24px 32px 36px; background:var(--surface); border:1px solid var(--border); border-top:none;
-  border-radius:0 0 var(--radius) var(--radius); padding:26px; min-height:480px;
+  border-radius:0 0 var(--radius) var(--radius); padding:26px;
+  min-height:calc(100vh - 230px);
+  display:flex; flex-direction:column;
 }
-@media (max-width:680px){ main{ margin:0 12px 24px; padding:16px; min-height:0; } }
+@media (max-width:680px){ main{ margin:0 12px 24px; padding:16px; min-height:calc(100vh - 200px); } }
 
 .empty{ text-align:center; padding:60px 20px; color:var(--ink-soft); font-size:14px;}
+
+/* study-mode body wrappers grow to fill the enlarged main area so the
+   card/quiz content can center itself vertically instead of hugging the top */
+#flash-body, #quiz-body, #spell-body, #listen-body{
+  flex:1; display:flex; flex-direction:column;
+}
 
 /* ===================== Buttons ===================== */
 .btn{
@@ -263,26 +274,26 @@ main{
 .kbd{ font-family:'Spectral',serif; font-size:10.5px; background:var(--surface-2); border:1px solid var(--border); border-radius:4px; padding:0 5px; color:var(--ink-soft);}
 
 /* ===================== Flashcard ===================== */
-.card-stage{ display:flex; flex-direction:column; align-items:center; gap:14px; padding:4px 0;}
-.progress-line{ width:100%; max-width:560px; display:flex; align-items:center; gap:10px; font-size:12px; color:var(--ink-soft); }
+.card-stage{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; padding:16px 0;}
+.progress-line{ width:100%; max-width:680px; display:flex; align-items:center; gap:10px; font-size:13px; color:var(--ink-soft); }
 .progress-bar{ flex:1; height:6px; background:var(--surface-2); border-radius:99px; overflow:hidden;}
 .progress-bar i{ display:block; height:100%; background:var(--accent); width:0%; transition:width .25s; }
 
 /* the card itself is a library index card: a faint red margin rule
    set in from the left edge, same as a physical ruled index card */
 .flashcard{
-  width:100%; max-width:560px; min-height:250px; background:var(--surface); border:1px solid var(--border);
+  width:100%; max-width:680px; min-height:min(52vh, 440px); background:var(--surface); border:1px solid var(--border);
   border-radius:var(--radius); position:relative; cursor:pointer;
-  padding:30px 26px 22px 46px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:36px 32px 28px 54px; display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center; user-select:none; overflow:hidden;
 }
 .flashcard::before{
   content:""; position:absolute; left:26px; top:0; bottom:0; width:1px; background:var(--danger); opacity:.32;
 }
-.flashcard .no{ font-family:'Spectral',serif; font-size:12px; color:var(--ink-faint); letter-spacing:.08em; margin-bottom:12px;}
-.flashcard .face{ font-family:'Spectral',serif; font-weight:700; font-size:38px; color:var(--ink); line-height:1.25; word-break:break-word;}
-.flashcard .face.ja{ font-family:'Zen Kaku Gothic New',serif; font-size:21px; font-weight:700; max-width:440px;}
-.flashcard .hint{ margin-top:14px; font-size:11.5px; color:var(--ink-faint); }
+.flashcard .no{ font-family:'Spectral',serif; font-size:13px; color:var(--ink-faint); letter-spacing:.08em; margin-bottom:16px;}
+.flashcard .face{ font-family:'Spectral',serif; font-weight:700; font-size:clamp(40px, 6vw, 68px); color:var(--ink); line-height:1.25; word-break:break-word;}
+.flashcard .face.ja{ font-family:'Zen Kaku Gothic New',serif; font-size:clamp(24px, 3.4vw, 34px); font-weight:700; max-width:560px;}
+.flashcard .hint{ margin-top:18px; font-size:12.5px; color:var(--ink-faint); }
 .flashcard .stamp{
   position:absolute; font-weight:900; font-size:46px;
   border:5px solid currentColor; border-radius:12px; padding:2px 12px; opacity:0;
@@ -294,8 +305,8 @@ main{
 @keyframes stampIn{ 0%{opacity:0; transform:scale(2.4) rotate(-10deg);} 60%{opacity:1;} 100%{opacity:.92; transform:scale(1) rotate(-6deg);} }
 
 .example-box{
-  width:100%; max-width:560px; background:var(--brass-pale); border:1px solid var(--border); border-radius:var(--radius);
-  padding:12px 16px; font-size:13px; color:var(--ink); display:none;
+  width:100%; max-width:680px; background:var(--brass-pale); border:1px solid var(--border); border-radius:var(--radius);
+  padding:14px 18px; font-size:14px; color:var(--ink); display:none;
 }
 .example-box.show{ display:block; }
 .example-box .en{ font-family:'Spectral',serif; font-style:italic; }
@@ -309,26 +320,26 @@ main{
 .navrow button:hover{ color:var(--accent-dk); }
 
 /* ===================== Quiz / Spell / Listen ===================== */
-.quiz-wrap{ max-width:600px; margin:0 auto; text-align:center; }
-.quiz-q{ background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius); padding:28px 22px; position:relative;}
-.quiz-q .no{ font-family:'Spectral',serif; font-size:12px; color:var(--ink-faint);}
-.quiz-q .prompt{ font-weight:700; font-size:21px; margin-top:10px; line-height:1.5;}
-.quiz-q .prompt.en{ font-family:'Spectral',serif; font-size:32px; font-weight:700;}
+.quiz-wrap{ flex:1; width:100%; max-width:760px; margin:0 auto; text-align:center; display:flex; flex-direction:column; justify-content:center; gap:4px; }
+.quiz-q{ background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius); padding:40px 32px; position:relative;}
+.quiz-q .no{ font-family:'Spectral',serif; font-size:13px; color:var(--ink-faint);}
+.quiz-q .prompt{ font-weight:700; font-size:clamp(22px, 3vw, 30px); margin-top:14px; line-height:1.5;}
+.quiz-q .prompt.en{ font-family:'Spectral',serif; font-size:clamp(30px, 5vw, 46px); font-weight:700;}
 
 /* answer options carry a marksheet-style circled letter, the way a
    Japanese multiple-choice test numbers its choices ①②③④ */
-.choices{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:20px; counter-reset:choice;}
+.choices{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:26px; counter-reset:choice;}
 @media (max-width:520px){ .choices{grid-template-columns:1fr;} }
 .choice{
-  font-size:14px; text-align:left; padding:12px 14px 12px 12px;
+  font-size:16.5px; text-align:left; padding:16px 18px 16px 14px;
   border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); cursor:pointer;
-  display:flex; gap:10px; align-items:center; color:var(--ink); counter-increment:choice;
+  display:flex; gap:12px; align-items:center; color:var(--ink); counter-increment:choice;
   transition:border-color var(--motion), background var(--motion);
 }
 .choice::before{
-  content:counter(choice, upper-alpha); flex:none; width:22px; height:22px; border-radius:50%;
+  content:counter(choice, upper-alpha); flex:none; width:26px; height:26px; border-radius:50%;
   border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
-  font-size:11px; font-weight:700; color:var(--ink-soft); font-family:'Spectral',serif;
+  font-size:12px; font-weight:700; color:var(--ink-soft); font-family:'Spectral',serif;
 }
 .choice:hover{ border-color:var(--accent); }
 .choice.correct{ background:var(--accent-pale); border-color:var(--accent); }
@@ -338,29 +349,48 @@ main{
 .choice.dim{ opacity:.5; }
 
 .spell-input{
-  width:100%; max-width:320px; font-family:'Spectral',serif; font-size:22px; text-align:center;
-  padding:12px 14px; border:2px solid var(--border); border-radius:var(--radius); margin-top:20px;
+  width:100%; max-width:420px; font-family:'Spectral',serif; font-size:32px; text-align:center;
+  padding:16px 18px; border:2px solid var(--border); border-radius:var(--radius); margin-top:26px;
   background:var(--surface); color:var(--ink);
 }
 .spell-input:focus{ border-color:var(--accent); }
-.spell-fb{ margin-top:14px; font-size:14px; min-height:22px; }
+.spell-fb{ margin-top:16px; font-size:16px; min-height:24px; }
 .spell-fb.ok{ color:var(--accent-dk); font-weight:700; }
 .spell-fb.ng{ color:var(--danger); font-weight:700; }
 
-.quiz-footer{ display:flex; justify-content:center; gap:10px; margin-top:18px; flex-wrap:wrap;}
-.streak{ margin-top:14px; font-size:12px; color:var(--ink-soft); }
+.quiz-footer{ display:flex; justify-content:center; gap:10px; margin-top:22px; flex-wrap:wrap;}
+.streak{ margin-top:16px; font-size:13px; color:var(--ink-soft); }
 .streak b{ color:var(--brass); }
 
 .listen-play{
-  width:84px; height:84px; border-radius:50%; border:2px solid var(--accent); background:var(--accent-pale);
-  color:var(--accent-dk); font-size:30px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  width:96px; height:96px; border-radius:50%; border:2px solid var(--accent); background:var(--accent-pale);
+  color:var(--accent-dk); font-size:34px; cursor:pointer; display:flex; align-items:center; justify-content:center;
   margin:6px auto 4px; transition:background var(--motion), color var(--motion);
 }
 .listen-play:hover{ background:var(--accent); color:var(--on-accent); }
-.listen-rate{ display:flex; gap:6px; justify-content:center; margin-top:8px; }
-.rate-btn{ font-size:11.5px; padding:4px 10px; border-radius:14px; border:1px solid var(--border); background:var(--surface); color:var(--ink-soft); cursor:pointer;}
+.listen-rate{ display:flex; gap:6px; justify-content:center; margin-top:10px; }
+.rate-btn{ font-size:12.5px; padding:5px 11px; border-radius:14px; border:1px solid var(--border); background:var(--surface); color:var(--ink-soft); cursor:pointer;}
 .rate-btn.active{ background:var(--ink); color:var(--paper); border-color:var(--ink);}
 [data-theme="dark"] .rate-btn.active{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+
+/* ===================== Quiz / Spell start screens ===================== */
+.start-card{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+  text-align:center; padding:20px;
+}
+.start-card .start-icon{ font-size:44px; line-height:1; margin-bottom:6px; }
+.start-card h2{ font-size:clamp(20px, 2.6vw, 26px); margin:0; }
+.start-card .start-meta{ font-size:13.5px; color:var(--ink-soft); margin-top:6px; }
+.start-card .start-tip{
+  display:inline-flex; align-items:center; gap:6px; margin-top:18px; font-size:12.5px; color:var(--ink-soft);
+  background:var(--brass-pale); border:1px solid var(--brass); color:var(--brass); border-radius:999px; padding:7px 14px;
+}
+.start-card .start-tip .link-btn{
+  background:none; border:none; padding:0; margin:0; font:inherit; font-weight:700; color:inherit; text-decoration:underline;
+  cursor:pointer;
+}
+.start-card .start-btn{ margin-top:24px; font-size:16px; padding:14px 34px; }
+.start-card .start-warn{ margin-top:16px; max-width:420px; }
 
 /* ===================== Phonetic / SRS info ===================== */
 .phonetic{ font-family:'Spectral',serif; font-style:italic; font-size:14px; color:var(--ink-soft); margin-top:2px; min-height:18px;}
