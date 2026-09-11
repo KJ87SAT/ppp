@@ -234,10 +234,6 @@ let state = {
   flipped:false,
   showEx:false,
   quizDir:'en2ja',
-  quizStarted:false,
-  spellStarted:false,
-  quizCount:'all',
-  spellCount:'all',
   streak:0,
   quizLocked:false,
   listenRate:1.0,
@@ -245,6 +241,9 @@ let state = {
   autoSpeak:true,
   rangeStart:1,
   rangeEnd:100,
+  sessionCorrect:0,
+  sessionWrong:0,
+  sessionMissed:[],
 };
 
 const SEC_SIZE = 100;
@@ -305,7 +304,6 @@ function syncTabs(){
 function goToMode(mode){
   state.mode = mode;
   state.pos = 0; state.streak = 0; state.showEx = false;
-  state.quizStarted = false; state.spellStarted = false;
   if(mode!=='list' && (state.filter==='due')) { /* keep due filter across study modes */ }
   syncTabs();
   render();
@@ -643,27 +641,11 @@ function showStamp(kind){
   el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
 }
 
-/* ---------- shared: question-count selector for quiz/spell start screens ---------- */
-const COUNT_STEPS = [10,20,30,50,100];
-function countOptionsFor(poolLen){
-  const opts = COUNT_STEPS.filter(n => n < poolLen);
-  opts.push('all');
-  return opts;
-}
-function countRowHTML(poolLen, current, idPrefix){
-  const opts = countOptionsFor(poolLen);
-  if(opts.length <= 1) return '';
-  return `
-    <div class="count-label">出題数</div>
-    <div class="count-row">${opts.map(o=>
-      `<button class="chip ${current===o?'active':''}" data-count="${o}" id="${idPrefix}-count-${o}">${o==='all' ? `全問 (${poolLen})` : `${o}問`}</button>`
-    ).join('')}</div>`;
-}
-
 /* ---------- QUIZ MODE ---------- */
 function renderQuizSetup(){
   rebuildOrder(false);
   shuffleOrder();
+  state.sessionCorrect = 0; state.sessionWrong = 0; state.sessionMissed = [];
   renderToolbar();
   main.innerHTML =
     `<div class="chiprow" style="display:flex;gap:8px;margin-bottom:16px;">
@@ -673,41 +655,7 @@ function renderQuizSetup(){
      <div id="quiz-body"></div>`;
   document.getElementById('dir-en2ja').addEventListener('click',()=>{state.quizDir='en2ja'; renderQuizSetup();});
   document.getElementById('dir-ja2en').addEventListener('click',()=>{state.quizDir='ja2en'; renderQuizSetup();});
-  if(state.quizStarted) renderQuizQuestion();
-  else renderQuizStart();
-}
-function renderQuizStart(){
-  const body = document.getElementById('quiz-body');
-  const pool = state.order;
-  const enough = pool.length >= 4;
-  const opts = countOptionsFor(pool.length);
-  if(state.quizCount !== 'all' && !opts.includes(state.quizCount)) state.quizCount = 'all';
-  const n = state.quizCount==='all' ? pool.length : Math.min(state.quizCount, pool.length);
-  body.innerHTML = `
-    <div class="start-card">
-      <div class="start-icon">✅</div>
-      <h2>4択クイズ</h2>
-      <div class="start-meta">${rangeLabel()} ・ 範囲内 ${pool.length} 語</div>
-      ${countRowHTML(pool.length, state.quizCount, 'quiz')}
-      <div class="start-tip">💡 <button class="link-btn" id="quiz-start-range">出題範囲を変更する</button></div>
-      ${enough
-        ? `<button class="btn primary start-btn" id="quiz-start-btn">▶ スタート（${n}問）</button>`
-        : `<div class="empty start-warn">4択クイズを出題するには、この範囲に最低4語必要です。範囲を広げてください。</div>`}
-    </div>`;
-  document.getElementById('quiz-start-range').addEventListener('click', openRangePopover);
-  opts.forEach(o=>{
-    document.getElementById(`quiz-count-${o}`)?.addEventListener('click', ()=>{
-      state.quizCount = o;
-      renderQuizStart();
-    });
-  });
-  document.getElementById('quiz-start-btn')?.addEventListener('click', ()=>{
-    const take = state.quizCount==='all' ? state.order.length : Math.min(state.quizCount, state.order.length);
-    state.order = state.order.slice(0, take);
-    state.quizStarted = true;
-    state.pos = 0; state.streak = 0;
-    renderQuizQuestion();
-  });
+  renderQuizQuestion();
 }
 function renderQuizQuestion(){
   const body = document.getElementById('quiz-body');
@@ -762,13 +710,17 @@ function renderQuizQuestion(){
       });
       const ok = chosen===answer;
       applyAnswer(no, ok);
+      if(ok) state.sessionCorrect++; else { state.sessionWrong++; state.sessionMissed.push(no); }
       document.getElementById('streak-n').textContent = state.streak;
       document.getElementById('quiz-ex').innerHTML = exampleBoxHTML(w).replace('example-box','example-box show');
       updateStats();
-      document.getElementById('quiz-next').classList.remove('hidden');
-      document.getElementById('quiz-next').addEventListener('click', ()=>{
-        state.pos = (state.pos+1) % pool.length;
-        renderQuizQuestion();
+      const isLast = state.pos+1 >= pool.length;
+      const nextBtn = document.getElementById('quiz-next');
+      nextBtn.textContent = isLast ? '結果を見る →' : '次の問題へ →';
+      nextBtn.classList.remove('hidden');
+      nextBtn.addEventListener('click', ()=>{
+        if(isLast){ renderQuizFinish(); }
+        else { state.pos++; renderQuizQuestion(); }
       }, {once:true});
     });
   });
@@ -778,43 +730,10 @@ function renderQuizQuestion(){
 function renderSpellSetup(){
   rebuildOrder(false);
   shuffleOrder();
+  state.sessionCorrect = 0; state.sessionWrong = 0; state.sessionMissed = [];
   renderToolbar();
   main.innerHTML = `<div id="spell-body"></div>`;
-  if(state.spellStarted) renderSpellQuestion();
-  else renderSpellStart();
-}
-function renderSpellStart(){
-  const body = document.getElementById('spell-body');
-  const pool = state.order;
-  const enough = pool.length >= 1;
-  const opts = countOptionsFor(pool.length);
-  if(state.spellCount !== 'all' && !opts.includes(state.spellCount)) state.spellCount = 'all';
-  const n = state.spellCount==='all' ? pool.length : Math.min(state.spellCount, pool.length);
-  body.innerHTML = `
-    <div class="start-card">
-      <div class="start-icon">✏️</div>
-      <h2>スペルテスト</h2>
-      <div class="start-meta">${rangeLabel()} ・ 範囲内 ${pool.length} 語</div>
-      ${countRowHTML(pool.length, state.spellCount, 'spell')}
-      <div class="start-tip">💡 <button class="link-btn" id="spell-start-range">出題範囲を変更する</button></div>
-      ${enough
-        ? `<button class="btn primary start-btn" id="spell-start-btn">▶ スタート（${n}問）</button>`
-        : `<div class="empty start-warn">この範囲には単語がありません。範囲を広げてください。</div>`}
-    </div>`;
-  document.getElementById('spell-start-range').addEventListener('click', openRangePopover);
-  opts.forEach(o=>{
-    document.getElementById(`spell-count-${o}`)?.addEventListener('click', ()=>{
-      state.spellCount = o;
-      renderSpellStart();
-    });
-  });
-  document.getElementById('spell-start-btn')?.addEventListener('click', ()=>{
-    const take = state.spellCount==='all' ? state.order.length : Math.min(state.spellCount, state.order.length);
-    state.order = state.order.slice(0, take);
-    state.spellStarted = true;
-    state.pos = 0; state.streak = 0;
-    renderSpellQuestion();
-  });
+  renderSpellQuestion();
 }
 function renderSpellQuestion(){
   const body = document.getElementById('spell-body');
@@ -850,20 +769,27 @@ function renderSpellQuestion(){
   input.focus();
   const fb = document.getElementById('spell-fb');
   let locked = false;
+  const isLast = state.pos+1 >= pool.length;
   function finish(){
     document.getElementById('spell-ex').innerHTML = exampleBoxHTML(w).replace('example-box','example-box show');
     updateStats();
-    document.getElementById('spell-check').textContent = '次へ →';
+    document.getElementById('spell-check').textContent = isLast ? '結果を見る →' : '次へ →';
     input.disabled = true;
+  }
+  function goNext(){
+    if(isLast){ renderSpellFinish(); }
+    else { state.pos++; renderSpellQuestion(); }
   }
   function check(){
     if(locked) return;
     locked = true;
     if(normalize(input.value)===normalize(w.word)){
       applyAnswer(no, true);
+      state.sessionCorrect++;
       fb.textContent = '◯ 正解！'; fb.className='spell-fb ok';
     } else {
       applyAnswer(no, false);
+      state.sessionWrong++; state.sessionMissed.push(no);
       fb.textContent = `✕ 正解: ${w.word}`; fb.className='spell-fb ng';
     }
     finish();
@@ -872,15 +798,16 @@ function renderSpellQuestion(){
     if(locked) return;
     locked = true;
     applyAnswer(no, false);
+    state.sessionWrong++; state.sessionMissed.push(no);
     fb.textContent = `答え: ${w.word}`; fb.className='spell-fb ng';
     finish();
   }
   document.getElementById('spell-check').addEventListener('click', ()=>{
-    if(!locked) check(); else { state.pos=(state.pos+1)%pool.length; renderSpellQuestion(); }
+    if(!locked) check(); else goNext();
   });
   document.getElementById('spell-skip').addEventListener('click', reveal);
   input.addEventListener('keydown', e=>{
-    if(e.key==='Enter'){ if(!locked) check(); else { state.pos=(state.pos+1)%pool.length; renderSpellQuestion(); } }
+    if(e.key==='Enter'){ if(!locked) check(); else goNext(); }
   });
 }
 
@@ -896,6 +823,7 @@ function speakWord(word){
 function renderListenSetup(){
   rebuildOrder(false);
   shuffleOrder();
+  state.sessionCorrect = 0; state.sessionWrong = 0; state.sessionMissed = [];
   renderToolbar();
   main.innerHTML = `<div id="listen-body"></div>`;
   if(!('speechSynthesis' in window)){
@@ -964,17 +892,70 @@ function renderListenQuestion(){
       });
       const ok = chosen===answer;
       applyAnswer(no, ok);
+      if(ok) state.sessionCorrect++; else { state.sessionWrong++; state.sessionMissed.push(no); }
       document.getElementById('streak-n').textContent = state.streak;
       document.getElementById('listen-ex').innerHTML =
         `<div class="example-box show"><div style="font-family:'Spectral',serif; font-weight:700; font-size:18px;">${w.word}</div>${hasExample(w) ? `<div class="en">${w.ex_en}</div><div class="ja">${w.ex_ja}</div>` : ''}</div>`;
       updateStats();
-      document.getElementById('listen-next').classList.remove('hidden');
-      document.getElementById('listen-next').addEventListener('click', ()=>{
-        state.pos = (state.pos+1) % pool.length;
-        renderListenQuestion();
+      const isLast = state.pos+1 >= pool.length;
+      const nextBtn = document.getElementById('listen-next');
+      nextBtn.textContent = isLast ? '結果を見る →' : '次の問題へ →';
+      nextBtn.classList.remove('hidden');
+      nextBtn.addEventListener('click', ()=>{
+        if(isLast){ renderListenFinish(); }
+        else { state.pos++; renderListenQuestion(); }
       }, {once:true});
     });
   });
+}
+
+/* ---------- SESSION RESULTS (quiz / spell / listen) ---------- */
+function sessionSummaryHTML(pool){
+  const total = pool.length;
+  const correct = state.sessionCorrect;
+  const wrong = state.sessionWrong;
+  const pct = total>0 ? Math.round((correct/total)*100) : 0;
+  const missedWords = state.sessionMissed.map(no=>wordByNo(no));
+  return `
+    <div class="quiz-wrap">
+      <div class="dash-card" style="max-width:560px;margin:0 auto;">
+        <h3>🎉 セッション終了</h3>
+        <div class="dash-stats">
+          <div class="dash-stat"><b>${pct}%</b><span>正答率</span></div>
+          <div class="dash-stat"><b style="color:var(--accent)">${correct}</b><span>正解</span></div>
+          <div class="dash-stat"><b style="color:var(--danger)">${wrong}</b><span>不正解</span></div>
+          <div class="dash-stat"><b>${total}</b><span>出題数</span></div>
+        </div>
+        ${missedWords.length ? `
+          <div style="margin-top:16px;text-align:left;">
+            <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:6px;">間違えた単語</div>
+            <ul class="weak-list">${missedWords.map(w=>`<li><span class="w">${w.word}</span><span>${w.mean}</span></li>`).join('')}</ul>
+          </div>` : ''}
+        <div class="quiz-footer" style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn primary" id="session-retry">🔄 もう一度</button>
+          <button class="btn ghost" id="session-dash">📊 ダッシュボードへ</button>
+        </div>
+      </div>
+    </div>`;
+}
+function renderQuizFinish(){
+  const pool = state.order;
+  document.getElementById('quiz-body').innerHTML = sessionSummaryHTML(pool);
+  document.getElementById('session-retry').addEventListener('click', renderQuizSetup);
+  document.getElementById('session-dash').addEventListener('click', ()=>goToMode('dash'));
+}
+function renderSpellFinish(){
+  const pool = state.order;
+  document.getElementById('spell-body').innerHTML = sessionSummaryHTML(pool);
+  document.getElementById('session-retry').addEventListener('click', renderSpellSetup);
+  document.getElementById('session-dash').addEventListener('click', ()=>goToMode('dash'));
+}
+function renderListenFinish(){
+  if('speechSynthesis' in window) window.speechSynthesis.cancel();
+  const pool = state.order;
+  document.getElementById('listen-body').innerHTML = sessionSummaryHTML(pool);
+  document.getElementById('session-retry').addEventListener('click', renderListenSetup);
+  document.getElementById('session-dash').addEventListener('click', ()=>goToMode('dash'));
 }
 
 /* ---------- LIST MODE ---------- */
@@ -1275,6 +1256,18 @@ document.addEventListener('keydown', e=>{
     else if(e.key==='2'){ markCard(false); }
     else if(e.key==='e' || e.key==='E'){ document.getElementById('btn-ex')?.click(); }
     else if(e.key==='s' || e.key==='S'){ document.getElementById('btn-speak')?.click(); }
+  }
+  else if(state.mode==='quiz'){
+    if(e.key==='Enter'){
+      const btn = document.getElementById('quiz-next');
+      if(btn && !btn.classList.contains('hidden')) btn.click();
+    }
+  }
+  else if(state.mode==='listen'){
+    if(e.key==='Enter'){
+      const btn = document.getElementById('listen-next');
+      if(btn && !btn.classList.contains('hidden')) btn.click();
+    }
   }
 });
 
