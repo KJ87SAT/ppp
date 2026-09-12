@@ -344,6 +344,12 @@ if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=> moveTa
 // initial placement without an easing swoop from x=0
 moveTabGlass(true);
 
+// respect reduced-motion for the liquid-glass refraction's SVG turbulence animation
+if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const turbAnim = document.getElementById('lg-turb-anim');
+  if(turbAnim && turbAnim.endElement) turbAnim.endElement();
+}
+
 document.getElementById('due-badge-btn').addEventListener('click', ()=>{
   state.filter = 'due';
   state.sectionStart = 1; state.sectionEnd = WORDS.length;

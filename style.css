@@ -239,6 +239,21 @@ body::before{
 @media (prefers-reduced-motion: reduce){
   .tab-glass{ transition:none !important; }
 }
+
+/* real refraction, not just blur: Chromium supports referencing an SVG
+   filter (feDisplacementMap) inside backdrop-filter, which actually
+   bends whatever sits behind the glass instead of only frosting it.
+   Safari/Firefox fail the @supports test and keep the plain blur above. */
+@supports (backdrop-filter: blur(1px) url(#liquid-glass-distort)) or (-webkit-backdrop-filter: blur(1px) url(#liquid-glass-distort)){
+  .tabs{
+    backdrop-filter: blur(calc(var(--glass-blur) * .6)) saturate(200%) url(#liquid-glass-distort);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * .6)) saturate(200%) url(#liquid-glass-distort);
+  }
+  .tab-glass{
+    backdrop-filter: blur(4px) saturate(220%) url(#liquid-glass-distort);
+    -webkit-backdrop-filter: blur(4px) saturate(220%) url(#liquid-glass-distort);
+  }
+}
 .tab{
   flex:none; display:inline-flex; align-items:center; gap:7px;
   font-weight:700; font-size:13px; white-space:nowrap;
