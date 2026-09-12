@@ -57,6 +57,10 @@
   --radius:    16px;   /* content panels: cards, quiz box, flashcard */
   --radius-lg: 22px;   /* floating: popovers, settings panel, toast */
   --motion: .16s;
+
+  --glass-reflex-light: 1;    /* strength of the bright top/left glass glare */
+  --glass-reflex-dark:  1;    /* strength of the dark bottom/right glass edge */
+  --saturation: 180%;
 }
 
 [data-theme="dark"]{
@@ -90,6 +94,10 @@
 
   --shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 20px 40px -18px rgba(0,0,0,.65);
   --glow-accent: 0 0 0 1px rgba(124,156,255,.3), 0 8px 26px -8px rgba(124,156,255,.55);
+
+  --glass-reflex-light: .35;
+  --glass-reflex-dark:  1.8;
+  --saturation: 150%;
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -185,15 +193,22 @@ body::before{
 /* an actual iOS-style segmented control: a rounded glass "track"
    floats just under the appbar, padded on all sides, and the
    .tab-glass pill glides + resizes inside it behind whichever
-   label is active — not a binder-tab row anymore. */
+   label is active — not a binder-tab row anymore.
+
+   Chromium can refract through an SVG filter referenced inside
+   backdrop-filter (feDisplacementMap = real bending of what's behind
+   the glass, not just a blur); Safari can't parse that url() and
+   silently drops the whole backdrop-filter declaration, so it falls
+   back to whatever -webkit-backdrop-filter says instead — hence the
+   two separate declarations below rather than one shared value. */
 .tabs{
   position:sticky; top:57px; z-index:20;
   display:flex; gap:2px; margin:10px 20px 0; padding:4px;
   border-radius:18px;
-  background:var(--surface-2);
+  background:color-mix(in srgb, var(--paper) 10%, transparent);
   border:1px solid var(--glass-border);
-  backdrop-filter:blur(var(--glass-blur)) saturate(180%);
-  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(180%);
+  backdrop-filter: blur(3px) saturate(var(--saturation)) url(#liquid-glass-distort);
+  -webkit-backdrop-filter: blur(calc(var(--glass-blur) * .6)) saturate(var(--saturation));
   box-shadow:0 1px 0 var(--glass-hi) inset, 0 10px 24px -16px rgba(76,90,190,.30);
   overflow-x:auto; scrollbar-width:none;
 }
@@ -203,19 +218,29 @@ body::before{
    settles behind whichever tab is active, instead of each tab
    drawing its own "active" background. Driven by script.js, which
    toggles the .ready/.pressed classes and writes the --gx/--gw
-   custom properties after measuring the active tab. */
+   custom properties after measuring the active tab.
+
+   The box-shadow stack is a set of thin inset lines rather than one
+   soft glow: a bright sliver top-left (the light catching the near
+   edge), a dark sliver bottom-right (the edge falling into shadow),
+   plus a wide soft lift shadow underneath — that combination is what
+   reads as an actual beveled piece of glass instead of a flat tinted
+   pill. --glass-reflex-light/-dark scale it per light/dark theme. */
 .tab-glass{
   position:absolute; left:0; top:4px; height:32px; width:0;
   border-radius:14px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.15) 55%, rgba(255,255,255,.05)),
-    var(--surface);
-  border:1px solid rgba(255,255,255,.7);
+  background:color-mix(in srgb, #fff 8%, transparent);
+  backdrop-filter: blur(1px) saturate(220%) url(#liquid-glass-distort);
+  -webkit-backdrop-filter: blur(4px) saturate(220%);
   box-shadow:
-    0 1px 0 rgba(255,255,255,.95) inset,
-    0 -6px 8px -6px rgba(255,255,255,.5) inset,
-    0 4px 10px -3px rgba(76,90,190,.35),
-    0 1px 3px rgba(76,90,190,.25);
+    inset 0 0 0 1px color-mix(in srgb, #fff calc(var(--glass-reflex-light) * 12%), transparent),
+    inset 1.5px 2.5px 0 -1px color-mix(in srgb, #fff calc(var(--glass-reflex-light) * 95%), transparent),
+    inset -1.5px -1.5px 0 -1px color-mix(in srgb, #fff calc(var(--glass-reflex-light) * 70%), transparent),
+    inset -2px -6px 1px -5px color-mix(in srgb, #fff calc(var(--glass-reflex-light) * 55%), transparent),
+    inset -0.5px -1px 3px 0 color-mix(in srgb, #000 calc(var(--glass-reflex-dark) * 10%), transparent),
+    inset -1.5px 2px 0 -1px color-mix(in srgb, #000 calc(var(--glass-reflex-dark) * 14%), transparent),
+    0 3px 8px -2px color-mix(in srgb, #000 calc(var(--glass-reflex-dark) * 12%), transparent),
+    0 1px 3px color-mix(in srgb, #000 calc(var(--glass-reflex-dark) * 8%), transparent);
   pointer-events:none; z-index:0;
   transition:
     transform .45s cubic-bezier(.22,1,.36,1),
@@ -223,49 +248,10 @@ body::before{
     height .3s ease;
   will-change:transform, width;
 }
-[data-theme="dark"] .tab-glass{
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.03) 55%, rgba(255,255,255,0)),
-    var(--surface);
-  border-color:rgba(255,255,255,.22);
-  box-shadow:
-    0 1px 0 rgba(255,255,255,.28) inset,
-    0 -6px 8px -6px rgba(255,255,255,.08) inset,
-    0 4px 10px -3px rgba(0,0,0,.55),
-    0 1px 3px rgba(0,0,0,.4);
-}
 .tab-glass.ready{ width:var(--gw,0); transform:translateX(var(--gx,0)); }
 .tab-glass.pressed{ transform:translateX(var(--gx,0)) scaleX(1.04) scaleY(.9); }
 @media (prefers-reduced-motion: reduce){
   .tab-glass{ transition:none !important; }
-}
-
-/* real refraction, not just blur: Chromium supports referencing an SVG
-   filter (feDisplacementMap) inside backdrop-filter, which actually
-   bends whatever sits behind the glass instead of only frosting it.
-   Because the distortion itself now reads as "glass", strip almost
-   all of the blur and the white tint here so you can actually see
-   through it — only the fallback branch above stays frosted.
-   Safari/Firefox fail the @supports test and keep that frosted look. */
-@supports (backdrop-filter: blur(1px) url(#liquid-glass-distort)) or (-webkit-backdrop-filter: blur(1px) url(#liquid-glass-distort)){
-  .tabs{
-    background:rgba(255,255,255,.10);
-    backdrop-filter: blur(3px) saturate(200%) url(#liquid-glass-distort);
-    -webkit-backdrop-filter: blur(3px) saturate(200%) url(#liquid-glass-distort);
-  }
-  [data-theme="dark"] .tabs{ background:rgba(255,255,255,.03); }
-  .tab-glass{
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,.05) 60%, rgba(255,255,255,0)),
-      rgba(255,255,255,.08);
-    backdrop-filter: blur(1px) saturate(220%) url(#liquid-glass-distort);
-    -webkit-backdrop-filter: blur(1px) saturate(220%) url(#liquid-glass-distort);
-  }
-  [data-theme="dark"] .tab-glass{
-    background:
-      linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.02) 60%, rgba(255,255,255,0)),
-      rgba(255,255,255,.03);
-  }
 }
 .tab{
   flex:none; display:inline-flex; align-items:center; gap:7px;
