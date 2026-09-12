@@ -243,15 +243,28 @@ body::before{
 /* real refraction, not just blur: Chromium supports referencing an SVG
    filter (feDisplacementMap) inside backdrop-filter, which actually
    bends whatever sits behind the glass instead of only frosting it.
-   Safari/Firefox fail the @supports test and keep the plain blur above. */
+   Because the distortion itself now reads as "glass", strip almost
+   all of the blur and the white tint here so you can actually see
+   through it — only the fallback branch above stays frosted.
+   Safari/Firefox fail the @supports test and keep that frosted look. */
 @supports (backdrop-filter: blur(1px) url(#liquid-glass-distort)) or (-webkit-backdrop-filter: blur(1px) url(#liquid-glass-distort)){
   .tabs{
-    backdrop-filter: blur(calc(var(--glass-blur) * .6)) saturate(200%) url(#liquid-glass-distort);
-    -webkit-backdrop-filter: blur(calc(var(--glass-blur) * .6)) saturate(200%) url(#liquid-glass-distort);
+    background:rgba(255,255,255,.10);
+    backdrop-filter: blur(3px) saturate(200%) url(#liquid-glass-distort);
+    -webkit-backdrop-filter: blur(3px) saturate(200%) url(#liquid-glass-distort);
   }
+  [data-theme="dark"] .tabs{ background:rgba(255,255,255,.03); }
   .tab-glass{
-    backdrop-filter: blur(4px) saturate(220%) url(#liquid-glass-distort);
-    -webkit-backdrop-filter: blur(4px) saturate(220%) url(#liquid-glass-distort);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,.05) 60%, rgba(255,255,255,0)),
+      rgba(255,255,255,.08);
+    backdrop-filter: blur(1px) saturate(220%) url(#liquid-glass-distort);
+    -webkit-backdrop-filter: blur(1px) saturate(220%) url(#liquid-glass-distort);
+  }
+  [data-theme="dark"] .tab-glass{
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.02) 60%, rgba(255,255,255,0)),
+      rgba(255,255,255,.03);
   }
 }
 .tab{
