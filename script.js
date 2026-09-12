@@ -238,7 +238,7 @@ let state = {
   quizLocked:false,
   listenRate:1.0,
   listenLocked:false,
-  autoSpeak:true,
+  autoSpeak:false,
   rangeStart:1,
   rangeEnd:100,
 };
@@ -895,7 +895,6 @@ function renderListenQuestion(){
   document.querySelectorAll('.rate-btn').forEach(b=>{
     b.addEventListener('click', ()=>{ state.listenRate = parseFloat(b.dataset.rate); renderListenQuestion(); });
   });
-  speakWord(w.word);
 
   document.querySelectorAll('.choice').forEach(btn=>{
     btn.addEventListener('click', ()=>{
