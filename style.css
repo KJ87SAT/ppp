@@ -26,6 +26,7 @@
   --paper:      #EEF1FC;
   --surface:    rgba(255,255,255,.58);
   --surface-2:  rgba(255,255,255,.34);
+  --surface-strong: rgba(255,255,255,.80);
   --glass-border: rgba(91,99,190,.20);
   --glass-hi:     rgba(255,255,255,.85);
   --glass-blur:   18px;
@@ -62,6 +63,7 @@
   --paper:      #0A0E22;
   --surface:    rgba(255,255,255,.06);
   --surface-2:  rgba(255,255,255,.035);
+  --surface-strong: rgba(10,14,34,.62);
   --glass-border: rgba(255,255,255,.14);
   --glass-hi:     rgba(255,255,255,.22);
   --ink:        #ECEFFC;
@@ -99,7 +101,7 @@ html,body{ margin:0; padding:0; }
 body{
   background:var(--paper);
   color:var(--ink);
-  font-family:'Zen Kaku Gothic New', sans-serif;
+  font-family:-apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Zen Kaku Gothic New', sans-serif;
   min-height:100vh;
   transition:background .2s, color .2s;
   position:relative;
@@ -145,7 +147,7 @@ body::before{
 }
 .brand{ display:flex; align-items:center; gap:11px; min-width:0; }
 .brand .mark{
-  flex:none; font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:13px;
+  flex:none; font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-weight:700; font-size:13px;
   background:var(--accent); color:var(--on-accent); padding:5px 9px; border-radius:7px; letter-spacing:.04em;
   box-shadow:var(--glow-accent);
 }
@@ -158,7 +160,7 @@ body::before{
 
 .appbar-right{ display:flex; align-items:center; gap:8px; flex:none; }
 .stat-pills{ display:flex; gap:14px; font-size:11.5px; color:var(--ink-soft); padding-right:6px; }
-.stat-pills b{ display:block; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; color:var(--ink); }
+.stat-pills b{ display:block; font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-weight:700; font-size:16px; color:var(--ink); }
 .stat-pills .stat-review b{ color:var(--danger); }
 .stat-pills .stat-mastered b{ color:var(--accent); }
 
@@ -169,7 +171,7 @@ body::before{
 }
 .icon-btn:hover{ color:var(--ink); border-color:var(--accent); }
 .icon-btn .due-count{
-  font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:11.5px; color:var(--brass);
+  font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-weight:700; font-size:11.5px; color:var(--brass);
 }
 .icon-btn.has-due{ border-color:var(--brass); background:var(--brass-pale); }
 
@@ -180,13 +182,20 @@ body::before{
 }
 
 /* ===================== Primary tabs ===================== */
-/* shaped like binder divider tabs: flat where they meet the toolbar below,
-   rounded only up top, so the active one reads as "pulled forward" */
+/* an actual iOS-style segmented control: a rounded glass "track"
+   floats just under the appbar, padded on all sides, and the
+   .tab-glass pill glides + resizes inside it behind whichever
+   label is active — not a binder-tab row anymore. */
 .tabs{
   position:sticky; top:57px; z-index:20;
-  display:flex; gap:4px; padding:10px 24px 0 36px; overflow-x:auto;
-  background:var(--paper); border-bottom:1px solid var(--border);
-  scrollbar-width:none;
+  display:flex; gap:2px; margin:10px 20px 0; padding:4px;
+  border-radius:18px;
+  background:var(--surface-2);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(180%);
+  box-shadow:0 1px 0 var(--glass-hi) inset, 0 10px 24px -16px rgba(76,90,190,.30);
+  overflow-x:auto; scrollbar-width:none;
 }
 .tabs::-webkit-scrollbar{ display:none; }
 
@@ -196,17 +205,34 @@ body::before{
    toggles the .ready/.pressed classes and writes the --gx/--gw
    custom properties after measuring the active tab. */
 .tab-glass{
-  position:absolute; left:0; top:10px; height:32px; width:0;
-  background:var(--surface); border:1px solid var(--glass-border); border-bottom:none;
-  border-radius:10px 10px 0 0;
-  backdrop-filter:blur(var(--glass-blur)); -webkit-backdrop-filter:blur(var(--glass-blur));
-  box-shadow:0 1px 0 var(--glass-hi) inset, var(--glow-accent);
+  position:absolute; left:0; top:4px; height:32px; width:0;
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.15) 55%, rgba(255,255,255,.05)),
+    var(--surface);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.95) inset,
+    0 -6px 8px -6px rgba(255,255,255,.5) inset,
+    0 4px 10px -3px rgba(76,90,190,.35),
+    0 1px 3px rgba(76,90,190,.25);
   pointer-events:none; z-index:0;
   transition:
-    transform .5s cubic-bezier(.22,1,.36,1),
-    width .5s cubic-bezier(.34,1.56,.64,1) .04s,
+    transform .45s cubic-bezier(.22,1,.36,1),
+    width .45s cubic-bezier(.34,1.56,.64,1) .03s,
     height .3s ease;
   will-change:transform, width;
+}
+[data-theme="dark"] .tab-glass{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.03) 55%, rgba(255,255,255,0)),
+    var(--surface);
+  border-color:rgba(255,255,255,.22);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.28) inset,
+    0 -6px 8px -6px rgba(255,255,255,.08) inset,
+    0 4px 10px -3px rgba(0,0,0,.55),
+    0 1px 3px rgba(0,0,0,.4);
 }
 .tab-glass.ready{ width:var(--gw,0); transform:translateX(var(--gx,0)); }
 .tab-glass.pressed{ transform:translateX(var(--gx,0)) scaleX(1.04) scaleY(.9); }
@@ -216,16 +242,16 @@ body::before{
 .tab{
   flex:none; display:inline-flex; align-items:center; gap:7px;
   font-weight:700; font-size:13px; white-space:nowrap;
-  padding:9px 14px 10px; border-radius:8px 8px 0 0; border:1px solid transparent; border-bottom:none;
+  padding:8px 14px; border-radius:14px; border:none;
   background:transparent; color:var(--ink-soft); cursor:pointer;
   transition:color var(--motion), transform var(--motion);
-  position:relative; top:1px; z-index:1;
+  position:relative; z-index:1;
 }
 .tab:hover{ color:var(--ink); }
 .tab.active{ color:var(--ink); }
 .tab:active{ transform:scale(.95); }
 @media (max-width:680px){
-  .appbar{ top:0; } .tabs{ top:53px; padding:9px 12px 0; }
+  .appbar{ top:0; } .tabs{ top:53px; margin:8px 12px 0; }
 }
 
 /* ===================== Toolbar (range + filter) ===================== */
@@ -269,16 +295,16 @@ body::before{
 .manual-range{ display:flex; align-items:flex-end; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
 .manual-range label{ display:flex; flex-direction:column; gap:4px; font-size:11.5px; color:var(--ink-soft); font-weight:700; }
 .manual-range input{
-  width:96px; font-family:'Space Grotesk',sans-serif; font-size:16px; text-align:center;
+  width:96px; font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:16px; text-align:center;
   padding:8px 8px; border:1px solid var(--border); border-radius:6px; background:var(--paper); color:var(--ink);
 }
 .manual-range input:focus{ border-color:var(--accent); }
-.manual-range .sep{ font-family:'Space Grotesk',sans-serif; color:var(--ink-faint); padding-bottom:9px; }
+.manual-range .sep{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; color:var(--ink-faint); padding-bottom:9px; }
 .manual-range .btn{ height:37px; }
 
 .section-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(88px,1fr)); gap:7px; }
 .sec-btn{
-  font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600;
+  font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:12px; font-weight:600;
   background:var(--surface-2); border:1px solid var(--border); border-radius:6px; padding:7px 6px 9px;
   cursor:pointer; text-align:center; color:var(--ink-soft); transition:border-color var(--motion), color var(--motion);
 }
@@ -296,8 +322,8 @@ hr.tear{ border:none; border-top:1px dashed var(--border); margin:14px 0; }
 /* flat paper: bordered, not shadowed — the shadow budget is spent on
    floating layers only (popover / settings / toast) */
 main{
-  margin:0 24px 32px 36px; background:var(--surface); border:1px solid var(--border); border-top:none;
-  border-radius:0 0 var(--radius) var(--radius); padding:26px; min-height:480px;
+  margin:14px 24px 32px; background:var(--surface-strong); border:1px solid var(--border);
+  border-radius:var(--radius); padding:26px; min-height:480px;
 }
 @media (max-width:680px){ main{ margin:0 12px 24px; padding:16px; min-height:0; } }
 
@@ -320,7 +346,7 @@ main{
 .btn.ghost{ background:transparent; }
 .btn:disabled{ opacity:.45; cursor:default; transform:none; }
 .btn.toggle-on{ background:var(--accent-pale); color:var(--accent-dk); border-color:var(--accent); }
-.kbd{ font-family:'Space Grotesk',sans-serif; font-size:10.5px; background:var(--surface-2); border:1px solid var(--border); border-radius:4px; padding:0 5px; color:var(--ink-soft);}
+.kbd{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:10.5px; background:var(--surface-2); border:1px solid var(--border); border-radius:4px; padding:0 5px; color:var(--ink-soft);}
 
 /* ===================== Flashcard ===================== */
 .card-stage{ display:flex; flex-direction:column; align-items:center; gap:14px; padding:4px 0;}
@@ -331,7 +357,7 @@ main{
 /* the card itself is a library index card: a faint red margin rule
    set in from the left edge, same as a physical ruled index card */
 .flashcard{
-  width:100%; max-width:560px; min-height:250px; background:var(--surface); border:1px solid var(--border);
+  width:100%; max-width:560px; min-height:250px; background:var(--surface-strong); border:1px solid var(--border);
   border-radius:var(--radius); position:relative; cursor:pointer;
   padding:34px 26px 22px; display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center; user-select:none; overflow:hidden;
@@ -343,12 +369,12 @@ main{
   background:linear-gradient(90deg, transparent, var(--accent), var(--blob-b), transparent);
   opacity:.75;
 }
-.flashcard .no{ font-family:'Space Grotesk',sans-serif; font-size:12px; color:var(--ink-faint); letter-spacing:.14em; margin-bottom:12px;}
-.flashcard .face{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:38px; color:var(--ink); line-height:1.25; word-break:break-word;}
+.flashcard .no{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:12px; color:var(--ink-faint); letter-spacing:.14em; margin-bottom:12px;}
+.flashcard .face{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-weight:700; font-size:38px; color:var(--ink); line-height:1.25; word-break:break-word;}
 .flashcard .face.ja{ font-family:'Zen Kaku Gothic New',serif; font-size:21px; font-weight:700; max-width:440px;}
 .flashcard .hint{ margin-top:14px; font-size:11.5px; color:var(--ink-faint); }
 .flashcard .stamp{
-  position:absolute; font-weight:700; font-size:40px; font-family:'Space Grotesk',sans-serif;
+  position:absolute; font-weight:700; font-size:40px; font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif;
   border:2px solid currentColor; border-radius:10px; padding:2px 12px; opacity:0;
   box-shadow:0 0 22px -2px currentColor; background:color-mix(in srgb, currentColor 10%, transparent);
   transform:scale(2.4) rotate(-8deg); pointer-events:none; letter-spacing:.08em;
@@ -363,7 +389,7 @@ main{
   padding:12px 16px; font-size:13px; color:var(--ink); display:none;
 }
 .example-box.show{ display:block; }
-.example-box .en{ font-family:'Space Grotesk',sans-serif; letter-spacing:.01em; }
+.example-box .en{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; letter-spacing:.01em; }
 .example-box .ja{ color:var(--ink-soft); margin-top:4px; font-size:12.5px;}
 
 .flash-audio-row{ display:flex; gap:8px; align-items:center; justify-content:center; flex-wrap:wrap; }
@@ -375,10 +401,10 @@ main{
 
 /* ===================== Quiz / Spell / Listen ===================== */
 .quiz-wrap{ max-width:600px; margin:0 auto; text-align:center; }
-.quiz-q{ background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius); padding:28px 22px; position:relative;}
-.quiz-q .no{ font-family:'Space Grotesk',sans-serif; font-size:12px; color:var(--ink-faint);}
+.quiz-q{ background:var(--surface-strong); border:1px solid var(--border); border-radius:var(--radius); padding:28px 22px; position:relative;}
+.quiz-q .no{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:12px; color:var(--ink-faint);}
 .quiz-q .prompt{ font-weight:700; font-size:21px; margin-top:10px; line-height:1.5;}
-.quiz-q .prompt.en{ font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700;}
+.quiz-q .prompt.en{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:32px; font-weight:700;}
 
 /* answer options carry a marksheet-style circled letter, the way a
    Japanese multiple-choice test numbers its choices ①②③④ */
@@ -393,7 +419,7 @@ main{
 .choice::before{
   content:counter(choice, upper-alpha); flex:none; width:22px; height:22px; border-radius:50%;
   border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
-  font-size:11px; font-weight:700; color:var(--ink-soft); font-family:'Space Grotesk',sans-serif;
+  font-size:11px; font-weight:700; color:var(--ink-soft); font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif;
 }
 .choice:hover{ border-color:var(--accent); }
 .choice.correct{ background:var(--accent-pale); border-color:var(--accent); }
@@ -403,7 +429,7 @@ main{
 .choice.dim{ opacity:.5; }
 
 .spell-input{
-  width:100%; max-width:320px; font-family:'Space Grotesk',sans-serif; font-size:22px; text-align:center;
+  width:100%; max-width:320px; font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:22px; text-align:center;
   padding:12px 14px; border:2px solid var(--border); border-radius:var(--radius); margin-top:20px;
   background:var(--surface); color:var(--ink);
 }
@@ -427,9 +453,9 @@ main{
 .rate-btn.active{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
 
 /* ===================== Phonetic / SRS info ===================== */
-.phonetic{ font-family:'Space Grotesk',sans-serif; font-size:14px; color:var(--accent); opacity:.85; letter-spacing:.02em; margin-top:2px; min-height:18px;}
+.phonetic{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:14px; color:var(--accent); opacity:.85; letter-spacing:.02em; margin-top:2px; min-height:18px;}
 .phonetic.loading{ opacity:.5; }
-.wt-phon{ font-family:'Space Grotesk',sans-serif; font-size:11.5px; color:var(--ink-faint); letter-spacing:.02em; display:block; margin-top:1px;}
+.wt-phon{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:11.5px; color:var(--ink-faint); letter-spacing:.02em; display:block; margin-top:1px;}
 .srs-info{ font-size:12px; color:var(--ink-soft); margin-top:8px; text-align:center; }
 
 /* ===================== List mode ===================== */
@@ -441,8 +467,8 @@ table.wordtable{ width:100%; border-collapse:collapse; font-size:13.5px;}
 table.wordtable th{ text-align:left; font-weight:700; color:var(--ink-soft); font-size:11.5px; padding:6px 10px; border-bottom:2px solid var(--ink);}
 table.wordtable td{ padding:8px 10px; border-bottom:1px solid var(--border); vertical-align:top;}
 table.wordtable tr:hover td{ background:var(--surface-2); }
-.wt-no{ font-family:'Space Grotesk',sans-serif; color:var(--ink-faint); width:44px;}
-.wt-word{ font-family:'Space Grotesk',sans-serif; font-weight:700; width:150px; cursor:pointer;}
+.wt-no{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; color:var(--ink-faint); width:44px;}
+.wt-word{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-weight:700; width:150px; cursor:pointer;}
 .wt-word:hover{ color:var(--accent-dk); text-decoration:underline;}
 .badge{ display:inline-block; font-size:10.5px; font-weight:700; padding:2px 8px; border-radius:99px;}
 .badge.new{ background:var(--surface-2); color:var(--ink-faint); }
@@ -451,23 +477,23 @@ table.wordtable tr:hover td{ background:var(--surface-2); }
 .jumpbtn{ background:none; border:1px solid var(--border); border-radius:6px; font-size:11px; padding:3px 8px; cursor:pointer; color:var(--ink-soft);}
 .jumpbtn:hover{ border-color:var(--accent); color:var(--accent-dk);}
 .ex-row td{ background:var(--surface-2); font-size:12.5px; color:var(--ink-soft); padding:8px 10px 12px;}
-.ex-row .en{ font-family:'Space Grotesk',sans-serif; color:var(--ink);}
+.ex-row .en{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; color:var(--ink);}
 
 /* ===================== Dashboard ===================== */
 .dash-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:16px; }
 @media (max-width:820px){ .dash-grid{ grid-template-columns:1fr; } }
-.dash-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:18px; }
+.dash-card{ background:var(--surface-strong); border:1px solid var(--border); border-radius:var(--radius); padding:18px; }
 .dash-card h3{ margin:0 0 12px; font-size:14px; font-weight:700; }
 .dash-card.wide{ grid-column:1 / -1; }
 .dash-stats{ display:flex; gap:18px; flex-wrap:wrap; margin-bottom:6px;}
-.dash-stat b{ display:block; font-family:'Space Grotesk',sans-serif; font-size:24px; }
+.dash-stat b{ display:block; font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-size:24px; }
 .dash-stat span{ font-size:11.5px; color:var(--ink-soft); }
 .chart-wrap{ position:relative; height:220px; }
 .chart-wrap.small{ height:170px; }
 .weak-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; max-height:260px; overflow-y:auto;}
 .weak-list li{ display:flex; align-items:center; justify-content:space-between; padding:7px 10px; border:1px solid var(--border); border-radius:6px; background:var(--surface-2); font-size:13px; cursor:pointer; transition:border-color var(--motion);}
 .weak-list li:hover{ border-color:var(--danger); }
-.weak-list .w{ font-family:'Space Grotesk',sans-serif; font-weight:700;}
+.weak-list .w{ font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Space Grotesk', sans-serif; font-weight:700;}
 .weak-list .c{ font-size:11px; color:var(--danger); font-weight:700;}
 .sec-bars{ display:flex; flex-direction:column; gap:8px; max-height:300px; overflow-y:auto; }
 .sec-bar-row{ display:grid; grid-template-columns:70px 1fr 40px; align-items:center; gap:8px; font-size:12px; color:var(--ink-soft);}
