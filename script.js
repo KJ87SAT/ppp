@@ -241,9 +241,6 @@ let state = {
   autoSpeak:true,
   rangeStart:1,
   rangeEnd:100,
-  sessionCorrect:0,
-  sessionWrong:0,
-  sessionMissed:[],
 };
 
 const SEC_SIZE = 100;
@@ -298,53 +295,54 @@ function updateStats(){
 
 /* ---------- tabs ---------- */
 const TAB_MODES = ['flash','quiz','spell','listen','list','dash'];
-function syncTabs(){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.mode===state.mode));
-}
+const tabsNav  = document.querySelector('.tabs');
+const tabGlass = document.getElementById('tab-glass');
 
-/* liquid-glass tab indicator: slides/stretches to whichever tab is
-   active. animate=false snaps instantly (first paint, resize, font
-   swap); animate=true (default) uses the CSS spring transition. */
-function positionTabGlow(animate=true){
-  const glow = document.getElementById('tab-glow');
-  const activeTab = document.querySelector('.tab.active');
-  if(!glow) return;
-  if(!activeTab){ glow.style.opacity = '0'; return; }
-  const apply = ()=>{
-    glow.style.left = activeTab.offsetLeft + 'px';
-    glow.style.width = activeTab.offsetWidth + 'px';
-    glow.style.top = activeTab.offsetTop + 'px';
-    glow.style.height = activeTab.offsetHeight + 'px';
-    glow.style.opacity = '1';
-  };
-  if(!animate){
-    glow.style.transition = 'none';
-    apply();
-    void glow.offsetWidth; // flush so the transition:none actually applies
-    glow.style.transition = '';
+function moveTabGlass(instant){
+  if(!tabGlass) return;
+  const active = document.querySelector('.tab.active');
+  if(!active){
+    tabGlass.style.setProperty('--gw', '0px');
+    tabGlass.classList.remove('ready');
+    return;
+  }
+  const gx = active.offsetLeft, gw = active.offsetWidth, gh = active.offsetHeight;
+  tabGlass.style.setProperty('--gx', gx+'px');
+  tabGlass.style.setProperty('--gw', gw+'px');
+  tabGlass.style.height = gh+'px';
+  if(instant){
+    const prev = tabGlass.style.transition;
+    tabGlass.style.transition = 'none';
+    tabGlass.classList.add('ready');
+    tabGlass.offsetHeight; // reflow
+    tabGlass.style.transition = prev;
   } else {
-    apply();
+    tabGlass.classList.add('ready');
   }
 }
-window.addEventListener('resize', ()=> positionTabGlow(false));
-if(document.fonts && document.fonts.ready){
-  document.fonts.ready.then(()=> positionTabGlow(false));
+function syncTabs(){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.mode===state.mode));
+  moveTabGlass();
 }
-
 function goToMode(mode){
   state.mode = mode;
   state.pos = 0; state.streak = 0; state.showEx = false;
   if(mode!=='list' && (state.filter==='due')) { /* keep due filter across study modes */ }
   syncTabs();
-  positionTabGlow(true);
   render();
 }
 document.querySelectorAll('.tab').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    goToMode(btn.dataset.mode);
-    btn.scrollIntoView({behavior:'smooth', inline:'nearest', block:'nearest'});
+  btn.addEventListener('click', ()=> goToMode(btn.dataset.mode));
+  // brief squish for a tactile "liquid" press, mirrors the glass moving to the new tab
+  btn.addEventListener('pointerdown', ()=>{
+    tabGlass.classList.add('pressed');
+    setTimeout(()=>tabGlass.classList.remove('pressed'), 160);
   });
 });
+window.addEventListener('resize', ()=> moveTabGlass(true));
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=> moveTabGlass(true));
+// initial placement without an easing swoop from x=0
+moveTabGlass(true);
 
 document.getElementById('due-badge-btn').addEventListener('click', ()=>{
   state.filter = 'due';
@@ -513,7 +511,7 @@ function renderSettingsPanel(){
     closeSettingsPanel();
     state.mode = 'badges';
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    positionTabGlow(true);
+    moveTabGlass();
     render();
   });
   document.getElementById('settings-export').addEventListener('click', ()=>{
@@ -680,7 +678,6 @@ function showStamp(kind){
 function renderQuizSetup(){
   rebuildOrder(false);
   shuffleOrder();
-  state.sessionCorrect = 0; state.sessionWrong = 0; state.sessionMissed = [];
   renderToolbar();
   main.innerHTML =
     `<div class="chiprow" style="display:flex;gap:8px;margin-bottom:16px;">
@@ -745,17 +742,13 @@ function renderQuizQuestion(){
       });
       const ok = chosen===answer;
       applyAnswer(no, ok);
-      if(ok) state.sessionCorrect++; else { state.sessionWrong++; state.sessionMissed.push(no); }
       document.getElementById('streak-n').textContent = state.streak;
       document.getElementById('quiz-ex').innerHTML = exampleBoxHTML(w).replace('example-box','example-box show');
       updateStats();
-      const isLast = state.pos+1 >= pool.length;
-      const nextBtn = document.getElementById('quiz-next');
-      nextBtn.textContent = isLast ? '結果を見る →' : '次の問題へ →';
-      nextBtn.classList.remove('hidden');
-      nextBtn.addEventListener('click', ()=>{
-        if(isLast){ renderQuizFinish(); }
-        else { state.pos++; renderQuizQuestion(); }
+      document.getElementById('quiz-next').classList.remove('hidden');
+      document.getElementById('quiz-next').addEventListener('click', ()=>{
+        state.pos = (state.pos+1) % pool.length;
+        renderQuizQuestion();
       }, {once:true});
     });
   });
@@ -765,7 +758,6 @@ function renderQuizQuestion(){
 function renderSpellSetup(){
   rebuildOrder(false);
   shuffleOrder();
-  state.sessionCorrect = 0; state.sessionWrong = 0; state.sessionMissed = [];
   renderToolbar();
   main.innerHTML = `<div id="spell-body"></div>`;
   renderSpellQuestion();
@@ -804,27 +796,20 @@ function renderSpellQuestion(){
   input.focus();
   const fb = document.getElementById('spell-fb');
   let locked = false;
-  const isLast = state.pos+1 >= pool.length;
   function finish(){
     document.getElementById('spell-ex').innerHTML = exampleBoxHTML(w).replace('example-box','example-box show');
     updateStats();
-    document.getElementById('spell-check').textContent = isLast ? '結果を見る →' : '次へ →';
+    document.getElementById('spell-check').textContent = '次へ →';
     input.disabled = true;
-  }
-  function goNext(){
-    if(isLast){ renderSpellFinish(); }
-    else { state.pos++; renderSpellQuestion(); }
   }
   function check(){
     if(locked) return;
     locked = true;
     if(normalize(input.value)===normalize(w.word)){
       applyAnswer(no, true);
-      state.sessionCorrect++;
       fb.textContent = '◯ 正解！'; fb.className='spell-fb ok';
     } else {
       applyAnswer(no, false);
-      state.sessionWrong++; state.sessionMissed.push(no);
       fb.textContent = `✕ 正解: ${w.word}`; fb.className='spell-fb ng';
     }
     finish();
@@ -833,16 +818,15 @@ function renderSpellQuestion(){
     if(locked) return;
     locked = true;
     applyAnswer(no, false);
-    state.sessionWrong++; state.sessionMissed.push(no);
     fb.textContent = `答え: ${w.word}`; fb.className='spell-fb ng';
     finish();
   }
   document.getElementById('spell-check').addEventListener('click', ()=>{
-    if(!locked) check(); else goNext();
+    if(!locked) check(); else { state.pos=(state.pos+1)%pool.length; renderSpellQuestion(); }
   });
   document.getElementById('spell-skip').addEventListener('click', reveal);
   input.addEventListener('keydown', e=>{
-    if(e.key==='Enter'){ if(!locked) check(); else goNext(); }
+    if(e.key==='Enter'){ if(!locked) check(); else { state.pos=(state.pos+1)%pool.length; renderSpellQuestion(); } }
   });
 }
 
@@ -858,7 +842,6 @@ function speakWord(word){
 function renderListenSetup(){
   rebuildOrder(false);
   shuffleOrder();
-  state.sessionCorrect = 0; state.sessionWrong = 0; state.sessionMissed = [];
   renderToolbar();
   main.innerHTML = `<div id="listen-body"></div>`;
   if(!('speechSynthesis' in window)){
@@ -927,70 +910,17 @@ function renderListenQuestion(){
       });
       const ok = chosen===answer;
       applyAnswer(no, ok);
-      if(ok) state.sessionCorrect++; else { state.sessionWrong++; state.sessionMissed.push(no); }
       document.getElementById('streak-n').textContent = state.streak;
       document.getElementById('listen-ex').innerHTML =
         `<div class="example-box show"><div style="font-family:'Spectral',serif; font-weight:700; font-size:18px;">${w.word}</div>${hasExample(w) ? `<div class="en">${w.ex_en}</div><div class="ja">${w.ex_ja}</div>` : ''}</div>`;
       updateStats();
-      const isLast = state.pos+1 >= pool.length;
-      const nextBtn = document.getElementById('listen-next');
-      nextBtn.textContent = isLast ? '結果を見る →' : '次の問題へ →';
-      nextBtn.classList.remove('hidden');
-      nextBtn.addEventListener('click', ()=>{
-        if(isLast){ renderListenFinish(); }
-        else { state.pos++; renderListenQuestion(); }
+      document.getElementById('listen-next').classList.remove('hidden');
+      document.getElementById('listen-next').addEventListener('click', ()=>{
+        state.pos = (state.pos+1) % pool.length;
+        renderListenQuestion();
       }, {once:true});
     });
   });
-}
-
-/* ---------- SESSION RESULTS (quiz / spell / listen) ---------- */
-function sessionSummaryHTML(pool){
-  const total = pool.length;
-  const correct = state.sessionCorrect;
-  const wrong = state.sessionWrong;
-  const pct = total>0 ? Math.round((correct/total)*100) : 0;
-  const missedWords = state.sessionMissed.map(no=>wordByNo(no));
-  return `
-    <div class="quiz-wrap">
-      <div class="dash-card" style="max-width:560px;margin:0 auto;">
-        <h3>🎉 セッション終了</h3>
-        <div class="dash-stats">
-          <div class="dash-stat"><b>${pct}%</b><span>正答率</span></div>
-          <div class="dash-stat"><b style="color:var(--accent)">${correct}</b><span>正解</span></div>
-          <div class="dash-stat"><b style="color:var(--danger)">${wrong}</b><span>不正解</span></div>
-          <div class="dash-stat"><b>${total}</b><span>出題数</span></div>
-        </div>
-        ${missedWords.length ? `
-          <div style="margin-top:16px;text-align:left;">
-            <div style="font-size:12.5px;color:var(--ink-soft);margin-bottom:6px;">間違えた単語</div>
-            <ul class="weak-list">${missedWords.map(w=>`<li><span class="w">${w.word}</span><span>${w.mean}</span></li>`).join('')}</ul>
-          </div>` : ''}
-        <div class="quiz-footer" style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-          <button class="btn primary" id="session-retry">🔄 もう一度</button>
-          <button class="btn ghost" id="session-dash">📊 ダッシュボードへ</button>
-        </div>
-      </div>
-    </div>`;
-}
-function renderQuizFinish(){
-  const pool = state.order;
-  document.getElementById('quiz-body').innerHTML = sessionSummaryHTML(pool);
-  document.getElementById('session-retry').addEventListener('click', renderQuizSetup);
-  document.getElementById('session-dash').addEventListener('click', ()=>goToMode('dash'));
-}
-function renderSpellFinish(){
-  const pool = state.order;
-  document.getElementById('spell-body').innerHTML = sessionSummaryHTML(pool);
-  document.getElementById('session-retry').addEventListener('click', renderSpellSetup);
-  document.getElementById('session-dash').addEventListener('click', ()=>goToMode('dash'));
-}
-function renderListenFinish(){
-  if('speechSynthesis' in window) window.speechSynthesis.cancel();
-  const pool = state.order;
-  document.getElementById('listen-body').innerHTML = sessionSummaryHTML(pool);
-  document.getElementById('session-retry').addEventListener('click', renderListenSetup);
-  document.getElementById('session-dash').addEventListener('click', ()=>goToMode('dash'));
 }
 
 /* ---------- LIST MODE ---------- */
@@ -1203,7 +1133,7 @@ function renderDashboard(){
   document.getElementById('btn-go-badges')?.addEventListener('click', ()=>{
     state.mode='badges';
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    positionTabGlow(true);
+    moveTabGlass();
     render();
   });
 
@@ -1293,18 +1223,6 @@ document.addEventListener('keydown', e=>{
     else if(e.key==='e' || e.key==='E'){ document.getElementById('btn-ex')?.click(); }
     else if(e.key==='s' || e.key==='S'){ document.getElementById('btn-speak')?.click(); }
   }
-  else if(state.mode==='quiz'){
-    if(e.key==='Enter'){
-      const btn = document.getElementById('quiz-next');
-      if(btn && !btn.classList.contains('hidden')) btn.click();
-    }
-  }
-  else if(state.mode==='listen'){
-    if(e.key==='Enter'){
-      const btn = document.getElementById('listen-next');
-      if(btn && !btn.classList.contains('hidden')) btn.click();
-    }
-  }
 });
 
 /* ---------- init ---------- */
@@ -1315,5 +1233,3 @@ rebuildOrder(false);
 checkBadges();
 syncTabs();
 render();
-positionTabGlow(false);
-requestAnimationFrame(()=> positionTabGlow(false)); // re-snap once layout/webfonts settle
